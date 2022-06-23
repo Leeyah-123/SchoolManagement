@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXProgressSpinner?>
+<?import io.github.palexdev.materialfx.controls.MFXRadioButton?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.QuadCurve?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainPane" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="827.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.school_management.controllers.SignupController">
+      <AnchorPane prefHeight="524.0" prefWidth="827.0" stylesheets="@../styles/styles.css">
+            <Pane depthTest="ENABLE" layoutX="82.0" layoutY="41.0" prefHeight="456.0" prefWidth="705.0" style="-fx-effect: dropshadow(three-pass-box, #81a0a1, 10, 0, 4, 4); -fx-background-insets: 12; -fx-background-radius: 6; -fx-background-color: #ffffff;">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <QuadCurve controlX="-206.0" controlY="11.0" endX="-584.0" endY="-90.0" fill="#2dabe2" layoutX="595.0" layoutY="101.0" startX="97.0" startY="-90.0" stroke="#2dabe2" strokeType="INSIDE" style="-fx-effect: dropshadow(three-pass-box, derive(cadetblue, -20%), 10, 0, 4, 4);" />
+               <MFXTextField fx:id="txtEmail" floatMode="BORDER" floatingText="Email" layoutX="402.0" layoutY="181.0" prefHeight="39.0" prefWidth="223.0" style="-fx-border-color: #2dabe2;">
+                  <textFill>
+                     <Color />
+                  </textFill>
+               </MFXTextField>
+               <MFXPasswordField fx:id="txtPassword" floatMode="BORDER" floatingText="Password" layoutX="402.0" layoutY="234.0" prefHeight="39.0" prefWidth="223.0" style="-fx-border-color: #2dabe2;" />
+               <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="204.0" layoutY="374.0" onAction="#signUp" prefHeight="32.0" prefWidth="299.0" rippleColor="#081bc3" style="-fx-background-color: #2dabe2;" text="Sign Up" textFill="WHITE">
+                  <font>
+                     <Font size="16.0" />
+                  </font>
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+               </MFXButton>
+               <Label layoutX="244.0" layoutY="417.0" text="Already have an account?" />
+               <MFXProgressSpinner layoutX="-14.0" layoutY="172.0" visible="false" />
+               <Circle fill="WHITE" layoutX="377.0" layoutY="83.0" radius="47.0" stroke="#2dabe0" strokeType="INSIDE" style="-fx-effect: dropshadow(three-pass-box, derive(cadetblue, -20%), 10, 0, 4, 4);" />
+               <ImageView fitHeight="69.0" fitWidth="62.0" layoutX="346.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../images/profile_icon.png" />
+               </ImageView>
+               <Label alignment="CENTER" layoutX="10.0" layoutY="143.0" prefHeight="15.0" prefWidth="730.0" text="Please fill in all fields to sign up!" />
+               <MFXPasswordField fx:id="txtConfirmPassword" floatMode="BORDER" floatingText="Confirm Password" layoutX="402.0" layoutY="289.0" prefHeight="39.0" prefWidth="223.0" style="-fx-border-color: #2dabe2;" />
+               <MFXTextField fx:id="txtFirstname" floatMode="BORDER" floatingText="Firstname" layoutX="96.0" layoutY="181.0" prefHeight="39.0" prefWidth="223.0" />
+               <MFXTextField fx:id="txtLastname" floatMode="BORDER" floatingText="Lastname" layoutX="96.0" layoutY="234.0" prefHeight="39.0" prefWidth="223.0" />
+               <MFXTextField fx:id="txtPhonenum" floatMode="BORDER" floatingText="Phone number" layoutX="96.0" layoutY="289.0" prefHeight="39.0" prefWidth="223.0" />
+               <MFXRadioButton fx:id="maleRadioBtn" layoutX="161.0" layoutY="342.0" radius="6.0" text="Male" textExpand="true">
+                  <toggleGroup>
+                     <ToggleGroup fx:id="gender" />
+                  </toggleGroup>
+               </MFXRadioButton>
+               <MFXRadioButton fx:id="femaleRadioBtn" layoutX="244.0" layoutY="342.0" radius="6.0" text="Female" textExpand="true" toggleGroup="$gender" />
+               <Label layoutX="96.0" layoutY="343.0" text="Gender:" />
+               <Button layoutX="389.0" layoutY="413.0" mnemonicParsing="false" onAction="#switchToLogin" style="-fx-border-radius: 0; -fx-background-radius: 0; -fx-background-color: transparent;" text="Login" textFill="#2dabe2">
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor></Button>
+            </Pane>
+      </AnchorPane>
+      <AnchorPane fx:id="spinnerPane" layoutX="383.0" layoutY="204.0" prefHeight="128.0" prefWidth="158.0" visible="false">
+            <MFXProgressSpinner layoutX="54.0" layoutY="39.0" />
+            <Label alignment="CENTER" layoutX="-1.0" layoutY="99.0" prefHeight="15.0" prefWidth="158.0" text="Redirecting..." />
+      </AnchorPane>
+</AnchorPane>

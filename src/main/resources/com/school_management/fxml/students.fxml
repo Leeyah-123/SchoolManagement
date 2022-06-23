@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.shape.Circle?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" stylesheets="@../styles/styles.css"
+            fx:controller="com.school_management.controllers.StudentsController" fx:id="primaryPane"
+            prefHeight="695.0" prefWidth="680.0"
+            style="-fx-background-color: #00e7db; -fx-border-radius: 30; -fx-background-radius: 30;">
+    <ImageView fitHeight="65.0" fitWidth="67.0" layoutX="648.0" layoutY="8.0" pickOnBounds="true"
+               preserveRatio="true">
+        <Image url="@../images/female_profile.png"/>
+    </ImageView>
+    <Circle fill="#2197ff00" layoutX="680.0" layoutY="40.0" radius="29.0" stroke="BLACK" strokeType="INSIDE"/>
+    <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="635.0" layoutY="73.0" rippleAnimateShadow="true"
+               rippleColor="#00e7db" style="-fx-background-color: #6200ee;" text="View Profile" textFill="WHITE">
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+    </MFXButton>
+    <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="259.0" layoutY="41.0" prefHeight="26.0"
+               prefWidth="134.0" rippleAnimateShadow="true" rippleColor="#00e7db" style="-fx-background-color: #6200ee;"
+               text="View Students" textFill="WHITE">
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </MFXButton>
+    <Line endX="659.0" layoutX="101.0" layoutY="105.0" startX="-100.0"/>
+    <Label layoutX="51.0" layoutY="40.0" text="Hello,">
+        <font>
+            <Font name="System Bold Italic" size="24.0"/>
+        </font>
+    </Label>
+    <Label fx:id="lblName" layoutX="119.0" layoutY="40.0" text="Teacher">
+        <font>
+            <Font name="System Bold Italic" size="24.0"/>
+        </font>
+    </Label>
+    <Label layoutX="435.0" layoutY="33.0" text="Current Session">
+        <font>
+            <Font name="System Bold Italic" size="14.0"/>
+        </font>
+    </Label>
+    <Label layoutX="455.0" layoutY="60.0" text="2021-2022">
+        <font>
+            <Font name="System Bold Italic" size="14.0"/>
+        </font>
+    </Label>
+    <AnchorPane layoutX="32.0" layoutY="122.0" prefHeight="302.0" prefWidth="693.0"
+                style="-fx-background-color: linear-gradient(to top, #6200ee, #6300ef, #6300f0, #6400f2, #6400f3, #6500f4, #6500f6, #6600f7, #6700f9, #6800fb, #6800fd, #6900ff);; -fx-background-radius: 10;">
+        <Label layoutX="32.0" layoutY="10.0" prefHeight="31.0" prefWidth="118.0" text="Overview" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="24.0"/>
+            </font>
+        </Label>
+        <Line endX="100.0" layoutX="559.0" layoutY="58.0" startX="-107.0" stroke="#00e7db"/>
+        <Label layoutX="442.0" layoutY="39.0" text="Number of classes" textFill="WHITE">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <Label fx:id="numClasses" layoutX="651.0" layoutY="36.0" text="0" textFill="WHITE">
+            <font>
+                <Font size="19.0"/>
+            </font>
+        </Label>
+        <ListView fx:id="listClasses" layoutX="457.0" layoutY="93.0" prefHeight="200.0" prefWidth="200.0"/>
+        <Label layoutX="507.0" layoutY="73.0" text="Your classes" textFill="WHITE">
+            <font>
+                <Font size="16.0"/>
+            </font>
+        </Label>
+        <ProgressIndicator layoutX="60.0" layoutY="72.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                           minHeight="-Infinity" minWidth="-Infinity" prefHeight="174.0" prefWidth="252.0"
+                           progress="0.11"/>
+        <Label layoutX="105.0" layoutY="255.0" text="Semester Complete" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="18.0"/>
+            </font>
+        </Label>
+    </AnchorPane>
+    <AnchorPane layoutX="34.0" layoutY="435.0" prefHeight="254.0" prefWidth="693.0"
+                style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+        <Label layoutX="32.0" layoutY="10.0" prefHeight="31.0" prefWidth="134.0" text="Reminders"
+               textFill="#6200ee">
+            <font>
+                <Font name="System Bold" size="24.0"/>
+            </font>
+        </Label>
+        <Label layoutX="442.0" layoutY="39.0" text="Number of classes" textFill="WHITE">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <Label fx:id="numClasses1" layoutX="651.0" layoutY="36.0" text="0" textFill="WHITE">
+            <font>
+                <Font size="19.0"/>
+            </font>
+        </Label>
+        <Line endX="-38.0" endY="148.0" layoutX="500.0" layoutY="106.0" startX="-38.0" startY="-106.0"
+              stroke="#6200ee"/>
+        <ListView layoutX="31.0" layoutY="43.0" prefHeight="200.0" prefWidth="411.0"/>
+        <Pane layoutX="471.0" layoutY="43.0" prefHeight="200.0" prefWidth="200.0"
+              style="-fx-background-color: #6200ee; -fx-border-radius: 50; -fx-background-radius: 50;">
+            <Label alignment="CENTER" layoutY="16.0" prefHeight="31.0" prefWidth="200.0" text="Title"
+                   textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="23.0"/>
+                </font>
+            </Label>
+            <Line endX="92.0" layoutX="108.0" layoutY="61.0" startX="-107.0" stroke="#00e7db"/>
+            <Label alignment="CENTER" layoutY="61.0" prefHeight="91.0" prefWidth="200.0"
+                   text="Some random description" textFill="WHITE">
+                <font>
+                    <Font name="System Bold Italic" size="12.0"/>
+                </font>
+            </Label>
+            <Line endX="92.0" layoutX="108.0" layoutY="152.0" startX="-107.0" stroke="#00e7db"/>
+            <Label alignment="CENTER" layoutY="171.0" prefHeight="15.0" prefWidth="200.0" text="In progress"
+                   textFill="WHITE"/>
+        </Pane>
+        <Label layoutX="471.0" layoutY="10.0" prefHeight="31.0" prefWidth="134.0" text="Details" textFill="#6200ee">
+            <font>
+                <Font name="System Bold" size="24.0"/>
+            </font>
+        </Label>
+    </AnchorPane>
+</AnchorPane>
