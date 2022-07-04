@@ -9,6 +9,7 @@ public class User {
     public static final String USER_NUMBER = "mobile_number";
     public static final String USER_PASSWORD = "password";
     public static final String USER_ROLE = "role";
+    public static final String USER_SUSPENDED = "suspended";
     private int id;
     private String firstName, lastName, email, gender, number, password, role;
 

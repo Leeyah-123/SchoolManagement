@@ -2,6 +2,7 @@ package com.school_management.controllers;
 
 import com.school_management.dao.GeneralDB;
 import com.school_management.dao.RemindersDB;
+import com.school_management.dao.SessionDB;
 import com.school_management.models.Reminder;
 import com.school_management.utils.*;
 import io.github.palexdev.materialfx.controls.MFXButton;
@@ -12,11 +13,11 @@ import io.github.palexdev.materialfx.effects.DepthLevel;
 import io.github.palexdev.materialfx.enums.FloatMode;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.effect.BoxBlur;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
 import org.apache.commons.codec.DecoderException;
@@ -31,7 +32,11 @@ public class DashboardController implements Initializable {
     @FXML
     private AnchorPane primaryPane;
     @FXML
+    private ImageView imageViewFemale, imageViewMale;
+    @FXML
     private Label lblName, lblSession, numClasses,lblReminderTitle, lblReminderStatus;
+    @FXML
+    private MFXButton btnProfile;
     @FXML
     private TextArea txtReminderContent;
     @FXML
@@ -140,10 +145,6 @@ public class DashboardController implements Initializable {
         });
 
         dialog.setLayoutX(390.0);
-        dialog.setLayoutY(250.0);
-
-        AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-        mainPane.getChildren().add(dialog);
         return dialog;
     }
 
@@ -235,15 +236,12 @@ public class DashboardController implements Initializable {
         });
 
         dialog.setLayoutX(390.0);
-        dialog.setLayoutY(250.0);
-
-        AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-        mainPane.getChildren().add(dialog);
         return dialog;
     }
     @FXML
     private void addReminder() {
-        MFXGenericDialog dialog =  load_add_reminder_dialog();
+        MFXGenericDialog dialog = load_add_reminder_dialog();
+        Animations.slideDown(primaryPane,dialog, 250);
         AnchorPane centerPane = (AnchorPane) dialog.getChildren().get(1);
         MFXTextField txtTitle = (MFXTextField) centerPane.getChildren().get(0);
         MFXTextField txtContent = (MFXTextField) centerPane.getChildren().get(1);
@@ -293,7 +291,14 @@ public class DashboardController implements Initializable {
     }
     @FXML
     private void editReminder() throws SQLException {
+        if (selectedReminderID == 0) {
+            Alerts.AlertError("Error", "Please select reminder from list!");
+            return;
+        }
+
         MFXGenericDialog dialog =  load_edit_reminder_dialog();
+        Animations.slideDown(primaryPane,dialog, 250);
+
         AnchorPane centerPane = (AnchorPane) dialog.getChildren().get(1);
         MFXTextField txtTitle = (MFXTextField) centerPane.getChildren().get(0);
         MFXTextField txtContent = (MFXTextField) centerPane.getChildren().get(1);
@@ -365,18 +370,30 @@ public class DashboardController implements Initializable {
         titles.clear();
         titles = RemindersDB.getReminderTitle(loggedUserID);
         listReminders.setItems(titles);
+        listReminders.getSelectionModel().clearSelection();
+        lblReminderTitle.setText("");
+        lblReminderStatus.setText("");
+        txtReminderContent.setText("");
+        selectedReminderID = 0;
+        selectedTitle = "";
     }
     private void setLabels() throws DecoderException, SQLException {
         numClasses.setText(String.valueOf(GeneralDB.getClassNum(loggedUserID)));
         lblName.setText(DBUtil.currentUsername());
+        lblSession.setText(SessionDB.sessionString());
     }
-    private void setImage() {
-
+    private void setImage() throws SQLException {
+        if (CurrentUser.getUserGender().equals("Male")) {
+            primaryPane.getChildren().remove(imageViewFemale);
+        } else {
+            primaryPane.getChildren().remove(imageViewMale);
+        }
     }
     private void setClassList() throws SQLException {
         classes = GeneralDB.getClasses(loggedUserID);
         listClasses.setItems(classes);
     }
+
     private void setReminderList() throws SQLException {
         titles = RemindersDB.getReminderTitle(loggedUserID);
         listReminders.setItems(titles);
@@ -396,38 +413,31 @@ public class DashboardController implements Initializable {
             }
         });
     }
+
     private void setListViews() throws SQLException {
         setReminderList();
         setClassList();
     }
 
-    private void setSessionProgress() {
-
+    private void setSessionProgress() throws SQLException {
+        sessionProgress.setProgress(SessionDB.SessionProgress());
     }
 
-    public void viewProfile(ActionEvent event) {
-        AnchorPane mainPane = (AnchorPane) event.getSource();
-        SceneController.switchScene(mainPane);
-    }
-
-    public void viewStatistics(ActionEvent event) {
-        AnchorPane mainPane = (AnchorPane) event.getSource();
-        SceneController.switchScene(mainPane);
+    public void viewProfile() {
+        AnchorPane mainPane = (AnchorPane) ((btnProfile.getParent()).getParent());
+        SceneController.switchScene(mainPane, Constants.PROFILE_FXML_DIR);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setImage();
         try {
+            setImage();
             setListViews();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        try {
+            SessionDB.sessionString();
+            setSessionProgress();
             setLabels();
-        } catch (DecoderException | SQLException e) {
+        } catch (SQLException | DecoderException e) {
             throw new RuntimeException(e);
         }
-        setSessionProgress();
     }
 }

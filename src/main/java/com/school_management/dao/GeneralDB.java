@@ -25,6 +25,25 @@ public class GeneralDB {
         }
     }
 
+    public static ResultSet getRecords() throws SQLException {
+        String query = "SELECT * FROM " + DBConstants.TABLE_GENERAL + ";";
+        preparedStatement = connection.prepareStatement(query);
+        return preparedStatement.executeQuery();
+    }
+
+    public static int addRecord(int teacherID, String className, String subjectName) throws SQLException {
+        String query = "INSERT INTO " + DBConstants.TABLE_GENERAL + "(teacher_id, class_name, subject_name) VALUES ('" + teacherID + "', '" + className + "', '" + subjectName + "');";
+        preparedStatement = connection.prepareStatement(query);
+        return preparedStatement.executeUpdate();
+    }
+
+    public static int deleteRecord(int recordID) throws SQLException {
+        String query = "DELETE FROM " + DBConstants.TABLE_GENERAL + " WHERE " + General.GENERAL_RECORD_ID + " = ?;";
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, recordID);
+        return preparedStatement.executeUpdate();
+    }
+
     public static ResultSet getTeacherStatistics(int TeacherID) throws SQLException {
         String query = "SELECT * FROM " + DBConstants.TABLE_GENERAL + " WHERE " + General.GENERAL_TEACHER_ID + " = ?;";
         preparedStatement = connection.prepareStatement(query);
@@ -60,5 +79,17 @@ public class GeneralDB {
             classNum += 1;
         };
         return classNum;
+    }
+
+    public static ResultSet searchRecords(int searchInt) {
+        String query = "SELECT * FROM " + DBConstants.TABLE_GENERAL + " WHERE " + General.GENERAL_TEACHER_ID + " = ?;";
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, searchInt);
+            return preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            Logger.getLogger(UsersDB.class.getName()).log(Level.SEVERE, e.getMessage(), e);
+            return null;
+        }
     }
 }

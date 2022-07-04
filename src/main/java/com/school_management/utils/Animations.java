@@ -12,14 +12,15 @@ public class Animations {
         Timeline fadeInTimeline = new Timeline();
         KeyFrame fadeInKey1 = new KeyFrame(Duration.millis(500), new KeyValue (element.opacityProperty(), 0), new KeyValue(element.layoutYProperty(), endYPosition));
         fadeInTimeline.getKeyFrames().add(fadeInKey1);
-        fadeInTimeline.setOnFinished((ae) ->
-                new Thread(() -> {
-                    Timeline fadeOutTimeline = new Timeline();
-                    KeyFrame fadeOutKey1 = new KeyFrame(Duration.millis(500), new KeyValue (element.opacityProperty(), 0), new KeyValue(element.layoutYProperty(), endYPosition));
-                    fadeOutTimeline.getKeyFrames().add(fadeOutKey1);
-                    fadeOutTimeline.setOnFinished((aeb) -> parent.getChildren().remove(element));
-                    fadeOutTimeline.play();
-                }).start());
         fadeInTimeline.play();
+    }
+
+    public static void slideDown(AnchorPane parent, Node element, int endYPosition) {
+        ((AnchorPane) parent.getParent()).getChildren().add(element);
+        Timeline fadeOutTimeline = new Timeline();
+            KeyFrame fadeOutKey1 = new KeyFrame(Duration.millis(500), new KeyValue (element.opacityProperty(), 1), new KeyValue(element.layoutYProperty(), endYPosition));
+            fadeOutTimeline.getKeyFrames().add(fadeOutKey1);
+            fadeOutTimeline.play();
+        fadeOutTimeline.play();
     }
 }

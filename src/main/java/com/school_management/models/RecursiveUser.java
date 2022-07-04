@@ -1,7 +1,12 @@
 package com.school_management.models;
 
 public class RecursiveUser {
-        private String firstName, lastName, email, gender, number, password;
+        private int teacherID;
+        private String firstName, lastName, email, gender, number, password, username, role, phoneNum;
+
+        public RecursiveUser() {
+
+        }
 
         public RecursiveUser(String firstName, String lastName, String email, String gender, String number, String password) {
             this.firstName = firstName;
@@ -12,20 +17,20 @@ public class RecursiveUser {
             this.password = password;
         }
 
+        public int getTeacherID() {
+            return teacherID;
+        }
+
+        public void setTeacherID(int teacherID) {
+            this.teacherID = teacherID;
+        }
+
         public String getFirstName() {
             return firstName;
         }
 
-        public void setFirstName(String firstName) {
-            this.firstName = firstName;
-        }
-
         public String getLastName() {
             return lastName;
-        }
-
-        public void setLastName(String lastName) {
-            this.lastName = lastName;
         }
 
         public String getEmail() {
@@ -40,18 +45,9 @@ public class RecursiveUser {
             return gender;
         }
 
-        public void setGender(String gender) {
-            this.gender = gender;
-        }
-
         public String getNumber() {
             return number;
         }
-
-        public void setNumber(String number) {
-            this.number = number;
-        }
-
         public String getPassword() {
             return password;
         }
@@ -59,4 +55,26 @@ public class RecursiveUser {
         public void setPassword(String password) {
             this.password = password;
         }
+        public void setUsername(String username) {
+            this.username = username;
+        }
+
+        public String getUsername() {
+            return username;
+        }
+        public String getRole() {
+            return role;
+        }
+
+        public void setRole(String role) {
+            this.role = role;
+        }
+
+        public String getPhoneNum() {
+            return phoneNum;
+        }
+
+        public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
+    }
 }

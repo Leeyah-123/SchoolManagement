@@ -26,6 +26,9 @@
                   <Insets />
                </opaqueInsets>
                <QuadCurve controlX="-206.0" controlY="11.0" endX="-584.0" endY="-90.0" fill="#2dabe2" layoutX="595.0" layoutY="101.0" startX="97.0" startY="-90.0" stroke="#2dabe2" strokeType="INSIDE" style="-fx-effect: dropshadow(three-pass-box, derive(cadetblue, -20%), 10, 0, 4, 4);" />
+               <MFXTextField fx:id="txtFirstname" floatMode="BORDER" floatingText="Firstname" layoutX="96.0" layoutY="181.0" prefHeight="39.0" prefWidth="223.0" />
+               <MFXTextField fx:id="txtLastname" floatMode="BORDER" floatingText="Lastname" layoutX="96.0" layoutY="234.0" prefHeight="39.0" prefWidth="223.0" />
+               <MFXTextField fx:id="txtPhonenum" floatMode="BORDER" floatingText="Phone number" layoutX="96.0" layoutY="289.0" prefHeight="39.0" prefWidth="223.0" />
                <MFXTextField fx:id="txtEmail" floatMode="BORDER" floatingText="Email" layoutX="402.0" layoutY="181.0" prefHeight="39.0" prefWidth="223.0" style="-fx-border-color: #2dabe2;">
                   <textFill>
                      <Color />
@@ -48,9 +51,6 @@
                </ImageView>
                <Label alignment="CENTER" layoutX="10.0" layoutY="143.0" prefHeight="15.0" prefWidth="730.0" text="Please fill in all fields to sign up!" />
                <MFXPasswordField fx:id="txtConfirmPassword" floatMode="BORDER" floatingText="Confirm Password" layoutX="402.0" layoutY="289.0" prefHeight="39.0" prefWidth="223.0" style="-fx-border-color: #2dabe2;" />
-               <MFXTextField fx:id="txtFirstname" floatMode="BORDER" floatingText="Firstname" layoutX="96.0" layoutY="181.0" prefHeight="39.0" prefWidth="223.0" />
-               <MFXTextField fx:id="txtLastname" floatMode="BORDER" floatingText="Lastname" layoutX="96.0" layoutY="234.0" prefHeight="39.0" prefWidth="223.0" />
-               <MFXTextField fx:id="txtPhonenum" floatMode="BORDER" floatingText="Phone number" layoutX="96.0" layoutY="289.0" prefHeight="39.0" prefWidth="223.0" />
                <MFXRadioButton fx:id="maleRadioBtn" layoutX="161.0" layoutY="342.0" radius="6.0" text="Male" textExpand="true">
                   <toggleGroup>
                      <ToggleGroup fx:id="gender" />

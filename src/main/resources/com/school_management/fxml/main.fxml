@@ -5,8 +5,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,205 +12,231 @@
 <?import javafx.scene.shape.Circle?>
 
 <AnchorPane fx:id="mainPane" prefHeight="708.0" prefWidth="1027.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.school_management.controllers.MainController">
-      <VBox alignment="TOP_CENTER" layoutX="9.0" layoutY="7.0" prefHeight="695.0" prefWidth="246.0" style="-fx-background-color: #2dabe2; -fx-border-radius: 30; -fx-background-radius: 30;">
-         <children>
-            <AnchorPane prefHeight="162.0" prefWidth="246.0">
-               <Label layoutX="18.0" layoutY="116.0" text="SCHOOL MANAGEMENT SYSTEM" textFill="WHITE" />
-               <ImageView fitHeight="103.0" fitWidth="184.0" layoutX="31.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../images/login_pic.png" />
-               </ImageView>
-            </AnchorPane>
-            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #6200ee; -fx-background-radius: 100;" VBox.vgrow="NEVER">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </VBox.margin>
+   <VBox alignment="TOP_CENTER" layoutX="9.0" layoutY="7.0" prefHeight="695.0" prefWidth="246.0"
+         style="-fx-background-color: #2dabe2; -fx-border-radius: 30; -fx-background-radius: 30;">
+      <padding>
+         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+      </padding>
+      <AnchorPane prefHeight="162.0" prefWidth="246.0">
+         <Label layoutX="18.0" layoutY="116.0" text="SCHOOL MANAGEMENT SYSTEM" textFill="WHITE"/>
+         <ImageView fitHeight="103.0" fitWidth="184.0" layoutX="31.0" layoutY="6.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <Image url="@../images/login_pic.png"/>
+         </ImageView>
+      </AnchorPane>
+      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="216.0"
+                  style="-fx-background-color: #6200ee; -fx-background-radius: 100;" VBox.vgrow="NEVER">
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+         </VBox.margin>
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+         <MFXButton fx:id="btnDashboard" layoutX="-1.0" onAction="#viewDashboard" prefHeight="48.0" prefWidth="226.0"
+                    rippleColor="#2dabe2" style="-fx-background-color: transparent;" styleClass="nav_button_active"
+                    text="Dashboard" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+         </MFXButton>
+         <Circle fill="DODGERBLUE" layoutX="25.0" layoutY="24.0" radius="25.0" stroke="BLACK" strokeType="INSIDE"/>
+         <ImageView fitHeight="31.0" fitWidth="37.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+            <Image url="@../images/view-dashboard.png"/>
+         </ImageView>
+      </AnchorPane>
+      <AnchorPane layoutX="20.0" layoutY="182.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0"
+                  prefWidth="216.0" style="-fx-background-color: #6200ee; -fx-background-radius: 100;">
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0"/>
+         </VBox.margin>
+         <MFXButton fx:id="btnStudents" layoutX="-1.0" onAction="#viewStudents" prefHeight="48.0" prefWidth="236.0"
+                    rippleColor="#2dabe2" style="-fx-background-color: transparent;" styleClass="nav_button"
+                    text="View Students" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+         </MFXButton>
+         <Circle fill="DODGERBLUE" layoutX="25.0" layoutY="24.0" radius="25.0" stroke="BLACK" strokeType="INSIDE"/>
+         <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+            <Image url="@../images/account-school.png"/>
+         </ImageView>
+      </AnchorPane>
+      <AnchorPane layoutX="15.0" layoutY="235.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0"
+                  prefWidth="216.0" style="-fx-background-color: #6200ee; -fx-background-radius: 100;">
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0"/>
+         </VBox.margin>
+         <MFXButton fx:id="btnTeachers" layoutX="-1.0" onAction="#viewTeachers" prefHeight="48.0" prefWidth="236.0"
+                    rippleColor="#2dabe2" style="-fx-background-color: transparent;" styleClass="nav_button"
+                    text="View Teachers" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+         </MFXButton>
+         <Circle fill="DODGERBLUE" layoutX="25.0" layoutY="24.0" radius="25.0" stroke="BLACK" strokeType="INSIDE"/>
+         <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+            <Image url="@../images/account-multiple.png"/>
+         </ImageView>
+      </AnchorPane>
+      <AnchorPane layoutX="20.0" layoutY="288.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0"
+                  prefWidth="216.0" style="-fx-background-color: #6200ee; -fx-background-radius: 100;">
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0"/>
+         </VBox.margin>
+         <MFXButton fx:id="btnClasses" alignment="CENTER" layoutX="-1.0" onAction="#viewClasses" prefHeight="48.0"
+                    prefWidth="236.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;"
+                    styleClass="nav_button" text="Manage Classes/Subjects" textFill="WHITE"
+                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                    AnchorPane.topAnchor="0.0">
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+            <padding>
+               <Insets left="30.0"/>
+            </padding>
+         </MFXButton>
+         <Circle fill="DODGERBLUE" layoutX="25.0" layoutY="24.0" radius="25.0" stroke="BLACK" strokeType="INSIDE"/>
+         <ImageView fitHeight="37.0" fitWidth="31.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+            <Image url="@../images/google-classroom.png"/>
+         </ImageView>
+      </AnchorPane>
+      <AnchorPane layoutX="20.0" layoutY="341.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0"
+                  prefWidth="216.0" style="-fx-background-color: #6200ee; -fx-background-radius: 100;">
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0"/>
+         </VBox.margin>
+         <MFXButton fx:id="btnStatistics" layoutX="-1.0" onAction="#viewStatistics" prefHeight="48.0"
+                    prefWidth="236.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;"
+                    styleClass="nav_button" text="View Statistics" textFill="WHITE" AnchorPane.bottomAnchor="0.0"
+                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+         </MFXButton>
+         <Circle fill="DODGERBLUE" layoutX="25.0" layoutY="24.0" radius="25.0" stroke="BLACK"
+                 strokeType="INSIDE"/>
+         <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+            <Image url="@../images/icons8-statistics-64.png"/>
+         </ImageView>
+      </AnchorPane>
+      <AnchorPane layoutX="20.0" layoutY="394.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0"
+                  prefWidth="216.0" style="-fx-background-color: #6200ee; -fx-background-radius: 100;">
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0"/>
+         </VBox.margin>
+         <MFXButton fx:id="btnAccount" layoutX="-1.0" onAction="#viewAccount" prefHeight="48.0" prefWidth="236.0"
+                    rippleColor="#2dabe2" style="-fx-background-color: transparent;" styleClass="nav_button"
+                    text="Manage Account" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+         </MFXButton>
+         <Circle fill="DODGERBLUE" layoutX="25.0" layoutY="24.0" radius="25.0" stroke="BLACK" strokeType="INSIDE"/>
+         <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+            <Image url="@../images/bank-transfer.png"/>
+         </ImageView>
+      </AnchorPane>
+      <AnchorPane layoutX="20.0" layoutY="447.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0"
+                  prefWidth="216.0" style="-fx-background-color: #6200ee; -fx-background-radius: 100;">
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0"/>
+         </VBox.margin>
+         <MFXButton fx:id="btnExpenses" layoutX="-1.0" onAction="#viewExpenses" prefHeight="48.0" prefWidth="236.0"
+                    rippleColor="#2dabe2" style="-fx-background-color: transparent;" styleClass="nav_button"
+                    text="Expenses" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+         </MFXButton>
+         <Circle fill="DODGERBLUE" layoutX="25.0" layoutY="24.0" radius="25.0" stroke="BLACK" strokeType="INSIDE"/>
+         <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+            <Image url="@../images/cash-multiple.png"/>
+         </ImageView>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <AnchorPane layoutX="10.0" layoutY="65.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0"
+                     prefWidth="216.0" style="-fx-background-color: #6200ee; -fx-background-radius: 100;">
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+            <MFXButton layoutX="-1.0" onAction="#logout" prefHeight="48.0" prefWidth="236.0"
+                       rippleColor="#2dabe2" style="-fx-background-color: transparent;" styleClass="nav_button"
+                       text="Logout" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                       AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <cursor>
-                  <Cursor fx:constant="HAND" />
+                  <Cursor fx:constant="HAND"/>
                </cursor>
-               <MFXButton fx:id="btnDashboard" styleClass="nav_button" layoutX="-1.0" onAction="#viewDashboard" prefHeight="48.0" prefWidth="226.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" text="Dashboard" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                  <cursor>
-                     <Cursor fx:constant="HAND" />
-                  </cursor>
-               </MFXButton>
-               <Circle fill="DODGERBLUE" layoutX="25.0" layoutY="24.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-               <ImageView fitHeight="31.0" fitWidth="37.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
-                  <cursor>
-                     <Cursor fx:constant="HAND" />
-                  </cursor>
-                  <image>
-                     <Image url="@../images/view-dashboard.png" />
-                  </image>
-               </ImageView>
-            </AnchorPane>
-            <AnchorPane layoutX="20.0" layoutY="182.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #6200ee; -fx-background-radius: 100;">
+            </MFXButton>
+            <Circle fill="DODGERBLUE" layoutX="25.0" layoutY="24.0" radius="25.0" stroke="BLACK"
+                    strokeType="INSIDE"/>
+            <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true"
+                       preserveRatio="true">
                <cursor>
-                  <Cursor fx:constant="HAND" />
+                  <Cursor fx:constant="HAND"/>
                </cursor>
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" />
-               </VBox.margin>
-               <MFXButton fx:id="btnStudents" styleClass="nav_button" layoutX="-1.0" onAction="#viewStudents" prefHeight="48.0" prefWidth="236.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" text="View Students" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                  <cursor>
-                     <Cursor fx:constant="HAND" />
-                  </cursor>
-               </MFXButton>
-               <Circle fill="DODGERBLUE" layoutX="25.0" layoutY="24.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-               <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
-                  <cursor>
-                     <Cursor fx:constant="HAND" />
-                  </cursor>
-                  <Image url="@../images/account-school.png" />
-               </ImageView>
-            </AnchorPane>
-            <AnchorPane layoutX="15.0" layoutY="235.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #6200ee; -fx-background-radius: 100;">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" />
-               </VBox.margin>
-               <MFXButton fx:id="btnTeachers" styleClass="nav_button" layoutX="-1.0" onAction="#viewTeachers" prefHeight="48.0" prefWidth="236.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" text="View Teachers" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                  <cursor>
-                     <Cursor fx:constant="HAND" />
-                  </cursor>
-               </MFXButton>
-               <Circle fill="DODGERBLUE" layoutX="25.0" layoutY="24.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-               <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
-                  <cursor>
-                     <Cursor fx:constant="HAND" />
-                  </cursor>
-                  <Image url="@../images/account-multiple.png" />
-               </ImageView>
-            </AnchorPane>
-            <AnchorPane layoutX="20.0" layoutY="288.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #6200ee; -fx-background-radius: 100;">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" />
-               </VBox.margin>
-               <MFXButton fx:id="btnClasses" styleClass="nav_button" layoutX="-1.0" onAction="#viewClasses" prefHeight="48.0" prefWidth="236.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" text="Manage Classes" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                  <cursor>
-                     <Cursor fx:constant="HAND" />
-                  </cursor>
-               </MFXButton>
-               <Circle fill="DODGERBLUE" layoutX="25.0" layoutY="24.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-               <ImageView fitHeight="37.0" fitWidth="31.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
-                  <cursor>
-                     <Cursor fx:constant="HAND" />
-                  </cursor>
-                  <image>
-                     <Image url="@../images/google-classroom.png" />
-                  </image>
-               </ImageView>
-            </AnchorPane>
-            <AnchorPane layoutX="20.0" layoutY="341.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #6200ee; -fx-background-radius: 100;">
-               <children>
-                  <MFXButton fx:id="btnSession" styleClass="nav_button" layoutX="-1.0" onAction="#viewSession" prefHeight="48.0" prefWidth="236.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" text="Session Details" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </MFXButton>
-                  <Circle fill="DODGERBLUE" layoutX="25.0" layoutY="24.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-                  <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <image>
-                        <Image url="@../images/calendar-clock.png" />
-                     </image>
-                  </ImageView>
-               </children>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" />
-               </VBox.margin>
-            </AnchorPane>
-            <AnchorPane layoutX="20.0" layoutY="394.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #6200ee; -fx-background-radius: 100;">
-               <children>
-                  <MFXButton fx:id="btnAccount" styleClass="nav_button" layoutX="-1.0" onAction="#viewAccount" prefHeight="48.0" prefWidth="236.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" text="Manage Account" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </MFXButton>
-                  <Circle fill="DODGERBLUE" layoutX="25.0" layoutY="24.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-                  <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <image>
-                        <Image url="@../images/bank-transfer.png" />
-                     </image>
-                  </ImageView>
-               </children>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" />
-               </VBox.margin>
-            </AnchorPane>
-            <AnchorPane layoutX="20.0" layoutY="447.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="216.0" style="-fx-background-color: #6200ee; -fx-background-radius: 100;">
-               <children>
-                  <MFXButton fx:id="btnExpenses" styleClass="nav_button" layoutX="-1.0" onAction="#viewExpenses" prefHeight="48.0" prefWidth="236.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" text="Expenses" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </MFXButton>
-                  <Circle fill="DODGERBLUE" layoutX="25.0" layoutY="24.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-                  <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <image>
-                        <Image url="@../images/cash-multiple.png" />
-                     </image>
-                  </ImageView>
-               </children>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" />
-               </VBox.margin>
-            </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <AnchorPane layoutX="10.0" layoutY="65.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="216.0" style="-fx-background-color: #6200ee; -fx-background-radius: 100;">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <MFXButton fx:id="btnLogout" styleClass="nav_button" layoutX="-1.0" onAction="#logout" prefHeight="48.0" prefWidth="236.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" text="Logout" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                        <cursor>
-                           <Cursor fx:constant="HAND" />
-                        </cursor>
-                     </MFXButton>
-                     <Circle fill="DODGERBLUE" layoutX="25.0" layoutY="24.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-                     <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                        <cursor>
-                           <Cursor fx:constant="HAND" />
-                        </cursor>
-                        <image>
-                           <Image url="@../images/logout.png" />
-                        </image>
-                     </ImageView>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
-         </children>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding></VBox>
+               <Image url="@../images/logout.png"/>
+            </ImageView>
+         </AnchorPane>
+      </AnchorPane>
+   </VBox>
    <AnchorPane fx:id="primaryPane" layoutX="259.0" layoutY="7.0" prefHeight="695.0" prefWidth="680.0" style="-fx-background-color: #00e7db; -fx-border-radius: 30; -fx-background-radius: 30;">
 
    </AnchorPane>
    <AnchorPane fx:id="spinnerPane" layoutX="468.0" layoutY="279.0" prefHeight="128.0" prefWidth="158.0" visible="false">
-      <children>
-         <MFXProgressSpinner layoutX="54.0" layoutY="39.0" />
-         <Label alignment="CENTER" layoutX="-1.0" layoutY="99.0" prefHeight="15.0" prefWidth="158.0" text="Redirecting..." />
-      </children>
+      <MFXProgressSpinner layoutX="54.0" layoutY="39.0"/>
+      <Label alignment="CENTER" layoutX="-1.0" layoutY="99.0" prefHeight="15.0" prefWidth="158.0"
+             text="Redirecting..."/>
    </AnchorPane>
    <opaqueInsets>
       <Insets />

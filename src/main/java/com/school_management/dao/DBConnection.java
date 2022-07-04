@@ -4,7 +4,6 @@ import com.school_management.models.*;
 import com.school_management.models.Class;
 import com.school_management.utils.DBConstants;
 import com.school_management.utils.config.db.DBDataSource;
-import javafx.scene.Scene;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,7 +16,7 @@ public class DBConnection {
     /*
      * getting the connection data from the dbconfigclass
      * @Reference DBDataSource()
-     * */
+     */
     private final String CONNECTION_STRING = DBDataSource.getInstance().getDatasource();
     private final String USER = DBDataSource.getInstance().getUser();
     private final String PASSWORD = DBDataSource.getInstance().getPassword();
@@ -58,7 +57,8 @@ public class DBConnection {
                     User.USER_GENDER + " varchar(6) NOT NULL," +
                     User.USER_NUMBER + " varchar(11) NOT NULL," +
                     User.USER_PASSWORD + " varchar NOT NULL," +
-                    User.USER_ROLE + " varchar DEFAULT 'teacher'" +
+                    User.USER_ROLE + " varchar NOT NULL DEFAULT 'teacher'," +
+                    User.USER_SUSPENDED + " varchar DEFAULT 'false'" +
                     ");";
 
             // students table
@@ -79,8 +79,11 @@ public class DBConnection {
                     Account.ACCOUNT_RECORD_ID + " SERIAL PRIMARY KEY NOT NULL," +
                     Account.ACCOUNT_EVENT + " varchar NOT NULL," +
                     Account.ACCOUNT_EVENT_DESCRIPTION + " varchar NOT NULL," +
-                    Account.ACCOUNT_EVENT_DATE + " date NOT NULL," +
-                    Account.ACCOUNT_BALANCE + " money NOT NULL" +
+                    Account.ACCOUNT_AMOUNT + " money NOT NULL," +
+                    Account.ACCOUNT_EVENT_DATE + " date NOT NULL DEFAULT CURRENT_DATE," +
+                    Account.ACCOUNT_BALANCE + " money NOT NULL," +
+                    Account.ACCOUNT_SESSION + " varchar NOT NULL," +
+                    Account.RECORDED_BY + " int NOT NULL" +
                     ");";
 
             // expenses table
@@ -89,7 +92,7 @@ public class DBConnection {
                     Expense.ITEM_PURCHASED + " varchar NOT NULL,\"" +
                     Expense.EXPENSE_DESCRIPTION + "\" varchar NOT NULL," +
                     Expense.EXPENSE_COST + " money NOT NULL," +
-                    Expense.EXPENSE_DATE + " date NOT NULL" +
+                    Expense.EXPENSE_DATE + " date NOT NULL DEFAULT CURRENT_DATE" +
                     ");";
 
             // general table
@@ -124,7 +127,6 @@ public class DBConnection {
             // session table
             String sessionTable = "CREATE TABLE IF NOT EXISTS public." + DBConstants.TABLE_SESSION + "(" +
                     Session.SESSION_ID + " SERIAL PRIMARY KEY NOT NULL," +
-                    Session.SESSION_NAME + " varchar UNIQUE NOT NULL," +
                     Session.START_DATE + " date NOT NULL," +
                     Session.END_DATE + " date NOT NULL" +
                     ");";

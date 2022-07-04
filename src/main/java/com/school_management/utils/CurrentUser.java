@@ -40,4 +40,27 @@ public class CurrentUser {
         return "";
     }
 
+    public static String getUserGender() throws SQLException {
+        Auth auth;
+        String decodedEmail = "";
+        String gender = "";
+        try {
+            auth = UserWriter.getCurrentUser();
+        } catch (DecoderException e) {
+            throw new RuntimeException(e);
+        }
+        assert auth != null;
+        decodedEmail = auth.getEmail();
+
+        String query = "SELECT gender FROM users WHERE email = ?;";
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, decodedEmail);
+        ResultSet rs = preparedStatement.executeQuery();
+
+        while (rs.next()) {
+            gender = rs.getString("gender");
+        }
+        return gender;
+    }
+
 }

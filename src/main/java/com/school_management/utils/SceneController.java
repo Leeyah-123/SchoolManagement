@@ -46,7 +46,7 @@ public class SceneController {
                 new Thread(() -> {
                     try
                     {
-                        Thread.sleep(1000);
+                        Thread.sleep(750);
                     }
                     catch (InterruptedException e)
                     {
@@ -87,7 +87,7 @@ public class SceneController {
                 new Thread(() -> {
                     try
                     {
-                        Thread.sleep(1000);
+                        Thread.sleep(750);
                     }
                     catch (InterruptedException e)
                     {

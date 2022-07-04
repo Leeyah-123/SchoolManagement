@@ -15,16 +15,15 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="primaryPane" prefHeight="695.0" prefWidth="680.0" style="-fx-background-color: #00e7db; -fx-border-radius: 30; -fx-background-radius: 30;" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.school_management.controllers.DashboardController">
-    <ImageView fitHeight="65.0" fitWidth="67.0" layoutX="648.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+    <ImageView fx:id="imageViewFemale" fitHeight="65.0" fitWidth="67.0" layoutX="648.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@../images/female_profile.png" />
     </ImageView>
     <Circle fill="#2197ff00" layoutX="680.0" layoutY="40.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
-    <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="635.0" layoutY="73.0" onAction="#viewProfile" rippleAnimateShadow="true" rippleColor="#00e7db" style="-fx-background-color: #6200ee;" text="View Profile" textFill="WHITE">
-        <cursor>
-            <Cursor fx:constant="HAND" />
-        </cursor>
-    </MFXButton>
-    <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="259.0" layoutY="41.0" onAction="#viewStatistics" prefHeight="26.0" prefWidth="134.0" rippleAnimateShadow="true" rippleColor="#00e7db" style="-fx-background-color: #6200ee;" text="View Statistics" textFill="WHITE">
+    <ImageView fx:id="imageViewMale" fitHeight="65.0" fitWidth="67.0" layoutX="648.0" layoutY="8.0" pickOnBounds="true"
+               preserveRatio="true">
+        <Image url="@../images/male_profile.png"/>
+    </ImageView>
+    <MFXButton fx:id="btnProfile" buttonType="RAISED" depthLevel="LEVEL5" layoutX="635.0" layoutY="73.0" onAction="#viewProfile" rippleAnimateShadow="true" rippleColor="#00e7db" style="-fx-background-color: #6200ee;" text="View Profile" textFill="WHITE">
         <cursor>
             <Cursor fx:constant="HAND" />
         </cursor>
@@ -40,12 +39,12 @@
             <Font name="System Bold Italic" size="24.0" />
         </font>
     </Label>
-    <Label layoutX="435.0" layoutY="33.0" text="Current Session">
+    <Label layoutX="349.0" layoutY="32.0" text="Current Session">
         <font>
             <Font name="System Bold Italic" size="14.0" />
         </font>
     </Label>
-    <Label layoutX="455.0" layoutY="60.0" text="2021-2022">
+    <Label fx:id="lblSession" layoutX="370.0" layoutY="59.0" text="2021-2022">
         <font>
             <Font name="System Bold Italic" size="14.0" />
         </font>
@@ -72,8 +71,8 @@
                 <Font size="16.0" />
             </font>
         </Label>
-        <ProgressIndicator fx:id="sessionProgress" layoutX="60.0" layoutY="72.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="174.0" prefWidth="252.0" progress="0.11" />
-        <Label layoutX="105.0" layoutY="255.0" text="Semester Complete" textFill="WHITE">
+        <ProgressIndicator fx:id="sessionProgress" depthTest="ENABLE" layoutX="60.0" layoutY="72.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefHeight="174.0" prefWidth="252.0" progress="0.0" style="-fx-background-color: #00e7db;" />
+        <Label layoutX="105.0" layoutY="255.0" text="Semester Progress" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
@@ -127,11 +126,9 @@
       </MFXButton>
       <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="592.0" layoutY="175.0" onAction="#refreshReminder" text="Refresh" textFill="#6200ee">
          <graphic>
-            <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/icons8-refresh-64.png" />
-               </image>
-            </ImageView>
+             <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                 <Image url="@../images/icons8-refresh-64.png"/>
+             </ImageView>
          </graphic>
       </MFXButton>
     </AnchorPane>

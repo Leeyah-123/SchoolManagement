@@ -3,8 +3,9 @@ package com.school_management.utils;
 public final class Constants {
     //fxml files
     public static String MAIN_FXML_DIR = "/com/school_management/fxml/main.fxml";
-    // icon
-    //    public static final String STAGE_ICON = "/com/inventorymanagement/resources/images/icons8_attach_100px_3.png";
+    // images
+    public static final String FEMALE_PROFILE = "/com/school_management/images/female_profile.png";
+    public static final String MALE_PROFILE = "/com/school_management/images/male_profile.png";
     public static String LOGIN_FXML_DIR = "/com/school_management/fxml/login.fxml";
     public static String SIGNUP_FXML_DIR = "/com/school_management/fxml/signup.fxml";
     public static String ACCOUNTS_FXML_DIR = "/com/school_management/fxml/accounts.fxml";

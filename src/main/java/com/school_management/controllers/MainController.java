@@ -1,5 +1,6 @@
 package com.school_management.controllers;
 
+import com.school_management.dao.UsersDB;
 import com.school_management.io.UserWriter;
 import com.school_management.utils.Alerts;
 import com.school_management.utils.Constants;
@@ -10,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -19,7 +21,7 @@ public class MainController implements Initializable {
     @FXML
     private AnchorPane mainPane;
     @FXML
-    private MFXButton btnDashboard, btnStudents, btnTeachers, btnClasses, btnSession, btnAccount, btnExpenses;
+    private MFXButton btnDashboard, btnStudents, btnTeachers, btnClasses, btnStatistics, btnAccount, btnExpenses;
 
     private void setSelected(MFXButton selectedBtn) {
 
@@ -35,26 +37,46 @@ public class MainController implements Initializable {
     }
 
     public void viewTeachers() {
+        if (UsersDB.getUserRole().equals("teacher") || UsersDB.getUserRole().equals("moderator")) {
+            Alerts.AlertError("Error", "Sorry, you do not have access to this resource");
+            return;
+        }
         SceneController.switchScene(mainPane, Constants.TEACHERS_FXML_DIR);
         setSelected(btnTeachers);
     }
 
     public void viewClasses() {
+        if (UsersDB.getUserRole().equals("teacher")) {
+            Alerts.AlertError("Error", "Sorry, you do not have access to this resource");
+            return;
+        }
         SceneController.switchScene(mainPane, Constants.CLASSES_FXML_DIR);
         setSelected(btnClasses);
     }
 
-    public void viewSession() {
-        SceneController.switchScene(mainPane, Constants.SESSION_FXML_DIR);
-        setSelected(btnSession);
+    public void viewStatistics() {
+        if (UsersDB.getUserRole().equals("teacher") || UsersDB.getUserRole().equals("moderator")) {
+            Alerts.AlertError("Error", "Sorry, you do not have access to this resource");
+            return;
+        }
+        SceneController.switchScene(mainPane, Constants.STATISTICS_FXML_DIR);
+        setSelected(btnStatistics);
     }
 
     public void viewAccount() {
+        if (UsersDB.getUserRole().equals("teacher") || UsersDB.getUserRole().equals("moderator")) {
+            Alerts.AlertError("Error", "Sorry, you do not have access to this resource");
+            return;
+        }
         SceneController.switchScene(mainPane, Constants.ACCOUNTS_FXML_DIR);
         setSelected(btnAccount);
     }
 
     public void viewExpenses() {
+        if (UsersDB.getUserRole().equals("teacher")) {
+            Alerts.AlertError("Error", "Sorry, you do not have access to this resource");
+            return;
+        }
         SceneController.switchScene(mainPane, Constants.EXPENSES_FXML_DIR);
         setSelected(btnExpenses);
     }
