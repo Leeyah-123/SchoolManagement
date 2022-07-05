@@ -106,17 +106,10 @@
                <Font size="20.0" />
             </font>
          </Label>
-         <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="279.0" layoutY="14.0" prefHeight="39.0" prefWidth="93.0" text="Delete" textFill="#6200ee">
+         <MFXButton fx:id="btnSuspend" buttonType="RAISED" depthLevel="LEVEL5" layoutX="331.0" layoutY="14.0" onAction="#suspend" prefHeight="39.0" prefWidth="138.0" text="Suspend" textFill="#6200ee">
             <graphic>
-               <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../images/icons8-remove-64.png" />
-               </ImageView>
-            </graphic>
-         </MFXButton>
-         <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="377.0" layoutY="14.0" onAction="#refresh" text="Refresh" textFill="#6200ee">
-            <graphic>
-               <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../images/icons8-refresh-64.png" />
+               <ImageView fx:id="suspendIcon" fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@../images/icons8-pause-64.png" />
                </ImageView>
             </graphic>
          </MFXButton>
@@ -124,8 +117,9 @@
       </AnchorPane>
       <MFXLegacyTableView fx:id="tableView" layoutY="65.0" prefHeight="246.0" prefWidth="491.0" tableMenuButtonVisible="true">
          <columns>
-            <TableColumn fx:id="colUserName" prefWidth="247.0" text="Username" editable="false" />
-            <TableColumn fx:id="colEmail" prefWidth="242.0" text="Email" editable="false" />
+            <TableColumn fx:id="colUserName" editable="false" prefWidth="247.0" text="Username" />
+            <TableColumn fx:id="colEmail" editable="false" prefWidth="242.0" text="Email" />
+            <TableColumn fx:id="colSuspended" editable="false" prefWidth="242.0" text="Suspended" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -151,7 +145,7 @@
          <Cursor fx:constant="HAND" />
       </cursor>
    </MFXButton>
-   <ImageView fx:id="editIcon" fitHeight="31.0" fitWidth="31.0" layoutX="305.0" layoutY="306.0" onMouseClicked="#editSession" pickOnBounds="true" preserveRatio="true">
+   <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="305.0" layoutY="306.0" onMouseClicked="#editSession" pickOnBounds="true" preserveRatio="true">
       <cursor>
          <Cursor fx:constant="HAND" />
       </cursor>

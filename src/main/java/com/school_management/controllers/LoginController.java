@@ -53,6 +53,11 @@ public class LoginController implements Initializable {
             return;
         }
 
+        if (usersDB.isSuspended(txtEmail.getText())) {
+            Alerts.AlertError("Access denied", "Sorry, your account has been suspended, please contact admin");
+            return;
+        }
+
         // writing user into file
         UserWriter.encodeUserToFile(txtEmail.getText(), txtPassword.getText(), rememberMe.isSelected());
 
@@ -82,7 +87,7 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //setting stage draggable
+        // set stage Draggable
         StageDraggable.setStageDraggable(mainPane);
     }
 }

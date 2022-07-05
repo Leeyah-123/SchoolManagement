@@ -95,8 +95,7 @@ public class ExpensesController implements Initializable {
 
             Alerts.AlertInfo("Success", "Record added successfully!");
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
             ShowTrayNotification
                     .trayNotification("Success!!!", "Record added successfully!!!",
                             AnimationType.SLIDE, NotificationType.SUCCESS);
@@ -156,8 +155,7 @@ public class ExpensesController implements Initializable {
 
         cancelBtn.setOnAction(event1 -> {
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
         });
 
         AnchorPane bottomPane = new AnchorPane();
@@ -182,8 +180,7 @@ public class ExpensesController implements Initializable {
 
         dialog.setOnClose(event1 -> {
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
         });
 
         dialog.setLayoutX(390.0);

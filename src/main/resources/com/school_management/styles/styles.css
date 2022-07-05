@@ -67,7 +67,7 @@
     -fx-pref-width:218.0;
 }
 
-.dial-text-field {
+.dial-text-field, .dial-date-picker {
     -fx-pref-height: 39.0;
     -fx-pref-width: 219.0;
 }
@@ -78,4 +78,3 @@
     -fx-pref-width: 92.0;
     -fx-pref-height: 26.0;
 }
-

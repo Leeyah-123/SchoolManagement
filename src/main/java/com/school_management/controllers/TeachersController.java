@@ -74,7 +74,7 @@ public class TeachersController implements Initializable {
         if (txtSearch2.getText().equals("")) {
             refresh();
         }
-        if (txtSearch2.getText().trim().matches("[/d]+")) {
+        if (txtSearch2.getText().trim().matches("[0-9]+")) {
             ResultSet rs = GeneralDB.searchRecords(Integer.parseInt(txtSearch2.getText()));
             records.clear();
             assert rs != null : "No record found";
@@ -106,8 +106,7 @@ public class TeachersController implements Initializable {
                         return;
                     }
                     primaryPane.setEffect(null);
-                    AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-                    Animations.slideUp(mainPane, dialog, -250);
+                    Animations.slideUp(primaryPane, dialog, -250);
                     ShowTrayNotification
                             .trayNotification("Success!!!", "Role changed successfully!!!",
                                     AnimationType.SLIDE, NotificationType.SUCCESS);
@@ -145,8 +144,7 @@ public class TeachersController implements Initializable {
                 throw new RuntimeException(e);
             }
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
             ShowTrayNotification
                     .trayNotification("Success!!!", "Record added successfully!!!",
                             AnimationType.SLIDE, NotificationType.SUCCESS);
@@ -232,8 +230,7 @@ public class TeachersController implements Initializable {
 
         cancelBtn.setOnAction(event1 -> {
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
         });
 
         AnchorPane bottomPane = new AnchorPane();
@@ -258,8 +255,7 @@ public class TeachersController implements Initializable {
 
         dialog.setOnClose(event1 -> {
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
         });
 
         dialog.setLayoutX(390.0);
@@ -320,8 +316,7 @@ public class TeachersController implements Initializable {
 
         cancelBtn.setOnAction(event1 -> {
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
         });
 
         AnchorPane bottomPane = new AnchorPane();

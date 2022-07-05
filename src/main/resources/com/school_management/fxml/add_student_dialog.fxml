@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXRadioButton?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import io.github.palexdev.materialfx.dialogs.MFXGenericDialog?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<MFXGenericDialog alwaysOnTop="true" headerText="Add Student" layoutX="150" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="729.0" showAlwaysOnTop="false" showMinimize="false" style="-fx-background-color: #00e7db;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <AnchorPane minHeight="-Infinity" prefHeight="142.0" prefWidth="376.0" BorderPane.alignment="CENTER">
+         <AnchorPane layoutX="22.0" layoutY="34.0" prefHeight="419.0" prefWidth="319.0" style="-fx-background-color: white;">
+            <effect>
+               <DropShadow />
+            </effect>
+            <MFXTextField fx:id="txtFirstName" borderGap="4.0" floatMode="BORDER" floatingText="Firstname" floatingTextGap="4.0" layoutX="18.0" layoutY="46.0" prefHeight="39.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-border-radius: 0; -fx-border-color: transparent transparent black transparent;" />
+            <MFXTextField fx:id="txtLastName" borderGap="4.0" floatMode="BORDER" floatingText="Lastname" floatingTextGap="4.0" layoutX="18.0" layoutY="111.0" prefHeight="39.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-border-radius: 0; -fx-border-color: transparent transparent black transparent;" />
+            <MFXTextField fx:id="txtMobileNumber" borderGap="4.0" floatMode="BORDER" floatingText="Mobile Number" floatingTextGap="4.0" layoutX="18.0" layoutY="180.0" prefHeight="39.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-border-radius: 0; -fx-border-color: transparent transparent black transparent;" />
+            <MFXTextField fx:id="txtEmail" borderGap="4.0" floatMode="BORDER" floatingText="Email address" floatingTextGap="4.0" layoutX="18.0" layoutY="261.0" prefHeight="39.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-border-radius: 0; -fx-border-color: transparent transparent black transparent;" />
+            <MFXRadioButton fx:id="maleRadioBtn" layoutX="101.0" layoutY="347.0" text="Male">
+               <toggleGroup>
+                  <ToggleGroup fx:id="gender" />
+               </toggleGroup>
+            </MFXRadioButton>
+            <MFXRadioButton fx:id="femaleRadioBtn" layoutX="201.0" layoutY="347.0" text="Female" toggleGroup="$gender" />
+            <Label alignment="CENTER" layoutX="4.0" layoutY="335.0" prefHeight="40.0" prefWidth="81.0" text="Gender:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </AnchorPane>
+         <AnchorPane layoutX="72.0" layoutY="6.0" prefHeight="46.0" prefWidth="200.0" style="-fx-background-color: #6200ee; -fx-opacity: 0.7;">
+            <Label alignment="CENTER" layoutX="-1.0" layoutY="16.0" prefHeight="46.0" prefWidth="200.0" text="Personal Details" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+         </AnchorPane>
+         <AnchorPane layoutX="374.0" layoutY="34.0" prefHeight="419.0" prefWidth="319.0" style="-fx-background-color: white;">
+            <effect>
+               <DropShadow />
+            </effect>
+            <ChoiceBox layoutX="30.0" layoutY="55.0" prefHeight="31.0" prefWidth="258.0" />
+            <AnchorPane layoutX="30.0" layoutY="125.0" prefHeight="200.0" prefWidth="256.0" style="-fx-border-color: black;">
+               <AnchorPane layoutX="2.0" prefHeight="108.0" prefWidth="258.0" style="-fx-background-color: #6200ee;">
+                  <Label alignment="CENTER" layoutX="2.0" layoutY="7.0" prefHeight="46.0" prefWidth="254.0" text="Amount to pay:" textFill="WHITE">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtAmountPayable" alignment="CENTER" layoutX="1.0" layoutY="49.0" prefHeight="46.0" prefWidth="254.0" text="0" textFill="WHITE">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+               </AnchorPane>
+               <MFXTextField fx:id="txtAmount" borderGap="4.0" floatMode="BORDER" floatingText="Amount paid" floatingTextGap="4.0" layoutX="32.0" layoutY="127.0" prefHeight="39.0" prefWidth="206.0" style="-fx-background-color: transparent; -fx-border-radius: 0; -fx-border-color: transparent transparent black transparent;" />
+            </AnchorPane>
+            <MFXTextField fx:id="txtBalance" borderGap="4.0" editable="false" floatMode="BORDER" floatingText="Balance" floatingTextGap="4.0" layoutX="62.0" layoutY="348.0" prefHeight="39.0" prefWidth="206.0" style="-fx-background-color: transparent; -fx-border-radius: 0; -fx-border-color: transparent transparent black transparent;" text="0" />
+         </AnchorPane>
+         <AnchorPane layoutX="429.0" layoutY="7.0" prefHeight="46.0" prefWidth="200.0" style="-fx-background-color: #6200ee; -fx-opacity: 0.7;">
+            <Label alignment="CENTER" layoutX="-1.0" layoutY="16.0" prefHeight="46.0" prefWidth="200.0" text="School Details" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+         </AnchorPane>
+      </AnchorPane>
+   </center>
+   <bottom>
+      <AnchorPane minHeight="-Infinity" prefHeight="46.0" prefWidth="376.0" BorderPane.alignment="CENTER">
+         <MFXButton fx:id="saveBtn" buttonType="RAISED" depthLevel="LEVEL4" layoutX="131.0" layoutY="10.0" prefHeight="26.0" prefWidth="92.0" styleClass="dial-btn" text="Save" />
+         <MFXButton fx:id="cancelBtn" buttonType="RAISED" depthLevel="LEVEL4" layoutX="488.0" layoutY="10.0" prefHeight="26.0" prefWidth="92.0" styleClass="dial-btn" text="Cancel" />
+      </AnchorPane>
+   </bottom>
+</MFXGenericDialog>

@@ -23,7 +23,7 @@ public class AccountsDB {
     }
 
     public static ResultSet getRecords() {
-        String query = "SELECT * FROM " + DBConstants.TABLE_ACCOUNTS + ";";
+        String query = "SELECT * FROM " + DBConstants.TABLE_ACCOUNTS + " ORDER BY record_id ASC;";
         ResultSet rs;
         try {
             preparedStatement = connection.prepareStatement(query);
@@ -35,6 +35,21 @@ public class AccountsDB {
         return rs;
     }
 
+    public static String stripMoney(String money) {
+        String strippedMoney = "";
+        if (money.charAt(0) != 0 || money.charAt(0) != 1 || money.charAt(0) != 2 || money.charAt(0) != 3 || money.charAt(0) != 4 || money.charAt(0) != 5 || money.charAt(0) != 6 || money.charAt(0) != 7 || money.charAt(0) != 8 || money.charAt(0) != 9) {
+            money = money.substring(1);
+        }
+        String[] floatingMoneyArray = money.split(",");
+        String floatingMoney = "";
+        for (String s : floatingMoneyArray) {
+            floatingMoney = floatingMoney.concat(s);
+        }
+        String[] balanceArray = floatingMoney.split("\\.");
+        strippedMoney = balanceArray[0];
+        return strippedMoney;
+    }
+
     public static int currentBalance() {
         String query = "SELECT * FROM " + DBConstants.TABLE_ACCOUNTS + " ORDER BY " + Account.ACCOUNT_RECORD_ID + " DESC LIMIT 1;";
         ResultSet rs;
@@ -44,17 +59,7 @@ public class AccountsDB {
             rs = preparedStatement.executeQuery();
             if (rs.next()) {
                 String balanceString = rs.getString(Account.ACCOUNT_BALANCE);
-                if (balanceString.charAt(0) != 0 || balanceString.charAt(0) != 1 || balanceString.charAt(0) != 2 || balanceString.charAt(0) != 3 || balanceString.charAt(0) != 4 || balanceString.charAt(0) != 5 || balanceString.charAt(0) != 6 || balanceString.charAt(0) != 7 || balanceString.charAt(0) != 8 || balanceString.charAt(0) != 9) {
-                    balanceString = balanceString.substring(1);
-                    String[] floatingbalanceArray = balanceString.split(",");
-                    String floatingbalance = "";
-                    for (String s : floatingbalanceArray) {
-                        floatingbalance = floatingbalance.concat(s);
-                    }
-                    String[] balanceArray = floatingbalance.split("\\.");
-                    String balance = balanceArray[0];
-                    currentBalance = Integer.parseInt(balance);
-                }
+                currentBalance = Integer.parseInt(stripMoney(balanceString));
                 return currentBalance;
             }
         } catch(SQLException e) {

@@ -17,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.effect.BoxBlur;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
@@ -32,7 +33,7 @@ public class DashboardController implements Initializable {
     @FXML
     private AnchorPane primaryPane;
     @FXML
-    private ImageView imageViewFemale, imageViewMale;
+    private ImageView imageView;
     @FXML
     private Label lblName, lblSession, numClasses,lblReminderTitle, lblReminderStatus;
     @FXML
@@ -53,12 +54,6 @@ public class DashboardController implements Initializable {
 
     public DashboardController() throws SQLException {
 
-    }
-
-    private void clear() {
-        lblReminderTitle.setText("");
-        lblReminderStatus.setText("");
-        txtReminderContent.setText("");
     }
 
     private MFXGenericDialog load_add_reminder_dialog() {
@@ -114,8 +109,7 @@ public class DashboardController implements Initializable {
 
         cancelBtn.setOnAction(event1 -> {
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
         });
 
         AnchorPane bottomPane = new AnchorPane();
@@ -140,8 +134,7 @@ public class DashboardController implements Initializable {
 
         dialog.setOnClose(event1 -> {
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
         });
 
         dialog.setLayoutX(390.0);
@@ -205,8 +198,7 @@ public class DashboardController implements Initializable {
 
         cancelBtn.setOnAction(event1 -> {
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
         });
 
         AnchorPane bottomPane = new AnchorPane();
@@ -231,8 +223,7 @@ public class DashboardController implements Initializable {
 
         dialog.setOnClose(event1 -> {
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
         });
 
         dialog.setLayoutX(390.0);
@@ -260,9 +251,13 @@ public class DashboardController implements Initializable {
                 return;
             }
 
-            if (RemindersDB.titleExist(txtTitle.getText()) == 1) {
-                Alerts.AlertError("Error", "Reminder with this title already exists");
-                return;
+            try {
+                if (RemindersDB.titleExist(txtTitle.getText()) == 1) {
+                    Alerts.AlertError("Error", "Reminder with this title already exists");
+                    return;
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
 
             try {
@@ -281,11 +276,15 @@ public class DashboardController implements Initializable {
             txtContent.setText("");
             status.setValue("Not Done");
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
             ShowTrayNotification
                     .trayNotification("Success!!!", "Reminder added successfully!!!",
                             AnimationType.SLIDE, NotificationType.SUCCESS);
+            try {
+                refreshReminder();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
 
         });
     }
@@ -317,9 +316,13 @@ public class DashboardController implements Initializable {
                 return;
             }
 
-            if (RemindersDB.titleExist(txtTitle.getText()) == 1 && !txtTitle.getText().equals(selectedTitle)) {
-                Alerts.AlertError("Error", "Reminder with this title already exists");
-                return;
+            try {
+                if (RemindersDB.titleExist(txtTitle.getText()) == 1 && !txtTitle.getText().equals(selectedTitle)) {
+                    Alerts.AlertError("Error", "Reminder with this title already exists");
+                    return;
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
 
             Reminder reminder;
@@ -330,7 +333,7 @@ public class DashboardController implements Initializable {
             }
 
             try {
-                if ((RemindersDB.editReminder(loggedUserID, txtTitle.getText(), txtContent.getText(), status.getValue(), selectedReminderID) != 1)){
+                if ((RemindersDB.editReminder(txtTitle.getText(), txtContent.getText(), status.getValue(), selectedReminderID) != 1)){
                     Alerts.AlertError("Error", "Something went wrong");
                     txtTitle.setText(reminder.getReminderTitle());
                     txtContent.setText(reminder.getReminderContent());
@@ -342,11 +345,15 @@ public class DashboardController implements Initializable {
             }
 
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
             ShowTrayNotification
                     .trayNotification("Success!!!", "Reminder updated successfully!!!",
                             AnimationType.SLIDE, NotificationType.SUCCESS);
+            try {
+                refreshReminder();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
 
         });
     }
@@ -362,7 +369,7 @@ public class DashboardController implements Initializable {
             ShowTrayNotification
                     .trayNotification("Success", "Reminder deleted successfully",
                             AnimationType.SLIDE, NotificationType.SUCCESS);
-            clear();
+            refreshReminder();
         }
     }
     @FXML
@@ -384,9 +391,11 @@ public class DashboardController implements Initializable {
     }
     private void setImage() throws SQLException {
         if (CurrentUser.getUserGender().equals("Male")) {
-            primaryPane.getChildren().remove(imageViewFemale);
+            Image image = new Image(Constants.MALE_PROFILE);
+            imageView.setImage(image);
         } else {
-            primaryPane.getChildren().remove(imageViewMale);
+            Image image = new Image(Constants.FEMALE_PROFILE);
+            imageView.setImage(image);
         }
     }
     private void setClassList() throws SQLException {

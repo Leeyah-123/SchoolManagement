@@ -15,14 +15,10 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="primaryPane" prefHeight="695.0" prefWidth="680.0" style="-fx-background-color: #00e7db; -fx-border-radius: 30; -fx-background-radius: 30;" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.school_management.controllers.DashboardController">
-    <ImageView fx:id="imageViewFemale" fitHeight="65.0" fitWidth="67.0" layoutX="648.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+    <ImageView fx:id="imageView" fitHeight="65.0" fitWidth="67.0" layoutX="648.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@../images/female_profile.png" />
     </ImageView>
     <Circle fill="#2197ff00" layoutX="680.0" layoutY="40.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
-    <ImageView fx:id="imageViewMale" fitHeight="65.0" fitWidth="67.0" layoutX="648.0" layoutY="8.0" pickOnBounds="true"
-               preserveRatio="true">
-        <Image url="@../images/male_profile.png"/>
-    </ImageView>
     <MFXButton fx:id="btnProfile" buttonType="RAISED" depthLevel="LEVEL5" layoutX="635.0" layoutY="73.0" onAction="#viewProfile" rippleAnimateShadow="true" rippleColor="#00e7db" style="-fx-background-color: #6200ee;" text="View Profile" textFill="WHITE">
         <cursor>
             <Cursor fx:constant="HAND" />
@@ -127,7 +123,7 @@
       <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="592.0" layoutY="175.0" onAction="#refreshReminder" text="Refresh" textFill="#6200ee">
          <graphic>
              <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                 <Image url="@../images/icons8-refresh-64.png"/>
+                 <Image url="@../images/icons8-refresh-64.png" />
              </ImageView>
          </graphic>
       </MFXButton>

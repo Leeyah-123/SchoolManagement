@@ -26,7 +26,7 @@ public class GeneralDB {
     }
 
     public static ResultSet getRecords() throws SQLException {
-        String query = "SELECT * FROM " + DBConstants.TABLE_GENERAL + ";";
+        String query = "SELECT * FROM " + DBConstants.TABLE_GENERAL + " ORDER BY record_id ASC;";
         preparedStatement = connection.prepareStatement(query);
         return preparedStatement.executeQuery();
     }
@@ -45,7 +45,7 @@ public class GeneralDB {
     }
 
     public static ResultSet getTeacherStatistics(int TeacherID) throws SQLException {
-        String query = "SELECT * FROM " + DBConstants.TABLE_GENERAL + " WHERE " + General.GENERAL_TEACHER_ID + " = ?;";
+        String query = "SELECT * FROM " + DBConstants.TABLE_GENERAL + " WHERE " + General.GENERAL_TEACHER_ID + " = ? ORDER BY record_id ASC;";
         preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1, TeacherID);
         return preparedStatement.executeQuery();

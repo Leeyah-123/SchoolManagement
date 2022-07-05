@@ -1,6 +1,7 @@
 package com.school_management.dao;
 
 import com.school_management.models.Reminder;
+import com.school_management.utils.CurrentUser;
 import com.school_management.utils.DBConstants;
 import com.school_management.utils.DBUtil;
 import javafx.collections.FXCollections;
@@ -27,7 +28,7 @@ public class RemindersDB {
 
     // get all reminders
     public static ResultSet getAllReminders(int TeacherID) {
-        String query = "SELECT * FROM " + DBConstants.TABLE_REMINDERS + " WHERE "+ Reminder.TEACHER_ID + " = " + TeacherID + ";";
+        String query = "SELECT * FROM " + DBConstants.TABLE_REMINDERS + " WHERE "+ Reminder.TEACHER_ID + " = " + TeacherID + " ORDER BY reminder_id ASC;";
 
         Statement statement;
         ResultSet resultSet = null;
@@ -55,7 +56,7 @@ public class RemindersDB {
 
     // getting all info about a reminder based on their title
     public static Reminder getReminderDetails(String reminderTitle) throws SQLException {
-        String query = "SELECT * FROM " + DBConstants.TABLE_REMINDERS + " WHERE "+ Reminder.REMINDER_TITLE + " = '" + reminderTitle + "';";
+        String query = "SELECT * FROM " + DBConstants.TABLE_REMINDERS + " WHERE "+ Reminder.REMINDER_TITLE + " = '" + reminderTitle + "' AND " + Reminder.TEACHER_ID + " = " + CurrentUser.getUserID() + ";";
 
         Statement statement;
         ResultSet resultSet = null;
@@ -99,21 +100,20 @@ public class RemindersDB {
     }
 
     // updating the details of a reminder
-    public static int editReminder(int TeacherID, String title, String content, String status, int ReminderID) throws SQLException {
-        String query = "UPDATE reminders SET teacher_id = ?, title = ?, content = ?, status = ? WHERE reminder_id = ?";
+    public static int editReminder(String title, String content, String status, int ReminderID) throws SQLException {
+        String query = "UPDATE reminders SET title = ?, content = ?, status = ? WHERE reminder_id = ?";
         preparedStatement = connection.prepareStatement(query);
-        preparedStatement.setInt(1, TeacherID);
-        preparedStatement.setString(2, title);
-        preparedStatement.setString(3, content);
-        preparedStatement.setString(4, status);
-        preparedStatement.setInt(5, ReminderID);
+        preparedStatement.setString(1, title);
+        preparedStatement.setString(2, content);
+        preparedStatement.setString(3, status);
+        preparedStatement.setInt(4, ReminderID);
         return preparedStatement.executeUpdate();
     }
 
     // checking to see if a reminder with the specified title already exists in the database
-    public static int titleExist(String title) {
+    public static int titleExist(String title) throws SQLException {
         String query = "SELECT COUNT(" + Reminder.REMINDER_TITLE + ") FROM " + DBConstants.TABLE_REMINDERS +
-                " WHERE " + Reminder.REMINDER_TITLE + " = '" + title + "';";
+                " WHERE " + Reminder.REMINDER_TITLE + " = '" + title + "' AND " + Reminder.TEACHER_ID + " = " + CurrentUser.getUserID() + ";";
 
         return DBUtil.getInstance().counter(query);
     }

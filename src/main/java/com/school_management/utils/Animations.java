@@ -12,6 +12,7 @@ public class Animations {
         Timeline fadeInTimeline = new Timeline();
         KeyFrame fadeInKey1 = new KeyFrame(Duration.millis(500), new KeyValue (element.opacityProperty(), 0), new KeyValue(element.layoutYProperty(), endYPosition));
         fadeInTimeline.getKeyFrames().add(fadeInKey1);
+        fadeInTimeline.setOnFinished(event -> ((AnchorPane) parent.getParent()).getChildren().remove(element));
         fadeInTimeline.play();
     }
 

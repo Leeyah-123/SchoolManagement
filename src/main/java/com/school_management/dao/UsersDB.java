@@ -29,7 +29,7 @@ public class UsersDB {
     }
 
     public static ResultSet getUsers() {
-        String query = "SELECT " + User.USER_ID + ", CONCAT(first_name, ' ', last_name) AS username, " + User.USER_EMAIL + ", " + User.USER_NUMBER + ", " + User.USER_ROLE + " FROM " + DBConstants.TABLE_USERS + " WHERE " + User.USER_ID + " != ?;";
+        String query = "SELECT " + User.USER_ID + ", CONCAT(first_name, ' ', last_name) AS username, " + User.USER_EMAIL + ", " + User.USER_NUMBER + ", " + User.USER_ROLE + ", " + User.USER_SUSPENDED + " FROM " + DBConstants.TABLE_USERS + " WHERE " + User.USER_ID + " != ? ORDER BY id ASC;";
         ResultSet rs;
         try {
             preparedStatement = connection.prepareStatement(query);
@@ -43,7 +43,7 @@ public class UsersDB {
     }
 
     public static ResultSet searchUsers(String searchString) {
-        String query = "SELECT " + User.USER_ID + ", CONCAT(first_name, ' ', last_name) AS username, " + User.USER_EMAIL + ", " + User.USER_NUMBER + ", " + User.USER_ROLE + " FROM " + DBConstants.TABLE_USERS + " WHERE (email ~* ? OR CONCAT(first_name, ' ', last_name) ~* ?) AND " + User.USER_ID + " != ?;";
+        String query = "SELECT " + User.USER_ID + ", CONCAT(first_name, ' ', last_name) AS username, " + User.USER_EMAIL + ", " + User.USER_NUMBER + ", " + User.USER_ROLE + ", " + User.USER_SUSPENDED + " FROM " + DBConstants.TABLE_USERS + " WHERE (email ~* ? OR CONCAT(first_name, ' ', last_name) ~* ?) AND " + User.USER_ID + " != ? ORDER BY id ASC;";
         ResultSet rs;
         try {
             preparedStatement = connection.prepareStatement(query);
@@ -122,25 +122,26 @@ public class UsersDB {
         return DBUtil.getInstance().counter(query);
     }
 
-    public boolean isSuspended(int id) {
-        String query = "SELECT " + User.USER_SUSPENDED + " FROM " + DBConstants.TABLE_USERS + " WHERE " + User.USER_ID + " = ?;";
+    public boolean isSuspended(String email) {
+        String query = "SELECT " + User.USER_SUSPENDED + " FROM " + DBConstants.TABLE_USERS + " WHERE " + User.USER_EMAIL + " = ?;";
         try {
             preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, email);
             ResultSet rs = preparedStatement.executeQuery();
-            String suspended = rs.getString(User.USER_SUSPENDED);
+            String suspended = "";
+            if (rs.next()) suspended = rs.getString(User.USER_SUSPENDED);
             return Boolean.parseBoolean(suspended);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public int suspend(String suspended, int id) {
-        String query = "UPDATE " + DBConstants.TABLE_USERS + " SET " + User.USER_SUSPENDED + " = ? WHERE " + User.USER_ID + " = ? ;";
+    public static int suspend(String suspended, String email) {
+        String query = "UPDATE " + DBConstants.TABLE_USERS + " SET " + User.USER_SUSPENDED + " = ? WHERE " + User.USER_EMAIL + " = ? ;";
         try {
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, suspended);
-            preparedStatement.setInt(2, id);
+            preparedStatement.setString(2, email);
             return preparedStatement.executeUpdate();
         } catch (SQLException e) {
             Logger.getLogger(UsersDB.class.getName()).log(Level.SEVERE, e.getMessage(), e);
@@ -181,7 +182,7 @@ public class UsersDB {
     }
 
     public static ObservableList<String> getTeacherIDS() {
-        String query = "SELECT * FROM " + DBConstants.TABLE_USERS + ";";
+        String query = "SELECT * FROM " + DBConstants.TABLE_USERS + " ORDER BY id ASC;";
         ObservableList<String> teacherList = FXCollections.observableArrayList();
         try {
             preparedStatement = connection.prepareStatement(query);

@@ -43,11 +43,12 @@ public class ClassesController implements Initializable {
     @FXML
     private MFXLegacyTableView<Subject> subjectTableView;
     @FXML
-    private TableColumn<Class, String> columnClassID, columnClassName, columnSubjectID, columnSubjectName;
+    private TableColumn<Class, String> columnClassID, columnClassName, columnFee, columnSubjectID, columnSubjectName;
     static int selectedClassID = 0;
     static int selectedSubjectID = 0;
     static String selectedClassName = "";
     static String selectedSubjectName = "";
+    static String selectedFee = "";
     ObservableList<Class> classes = FXCollections.observableArrayList();
     ObservableList<Subject> subjects = FXCollections.observableArrayList();
 
@@ -59,15 +60,22 @@ public class ClassesController implements Initializable {
         dialog.setHeaderText("Add Class");
 
         AnchorPane centerPane = new AnchorPane();
-        centerPane.setStyle(" -fx-pref-height:148.0; -fx-pref-width:366.0;");
+        centerPane.setStyle(" -fx-pref-height:142.0; -fx-pref-width:376.0;");
 
         MFXTextField className = new MFXTextField();
         className.setFloatingText("Class Name");
         className.setFloatMode(FloatMode.BORDER);
         className.setLayoutX(80);
-        className.setLayoutY(45);
+        className.setLayoutY(14);
+
+        MFXTextField classFee = new MFXTextField();
+        classFee.setFloatingText("Class Fee");
+        classFee.setFloatMode(FloatMode.BORDER);
+        classFee.setLayoutX(80);
+        classFee.setLayoutY(76);
 
         className.getStyleClass().add("dial-text-field");
+        classFee.getStyleClass().add("dial-text-field");
 
         MFXButton saveBtn = new MFXButton("Save");
         saveBtn.setRippleAnimateShadow(true);
@@ -88,34 +96,32 @@ public class ClassesController implements Initializable {
 
         cancelBtn.setOnAction(event1 -> {
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
         });
 
         AnchorPane bottomPane = new AnchorPane();
-        bottomPane.setStyle("-fx-pref-height: 74.0; -fx-pref-width:366.0;");
+        bottomPane.setStyle("-fx-pref-height: 46.0; -fx-pref-width:376.0;");
         bottomPane.setId("bottomPane");
 
-        saveBtn.setLayoutX(84.0);
-        cancelBtn.setLayoutX(207.0);
-        saveBtn.setLayoutY(37.0);
-        cancelBtn.setLayoutY(37.0);
+        saveBtn.setLayoutX(81.0);
+        cancelBtn.setLayoutX(204.0);
+        saveBtn.setLayoutY(9.0);
+        cancelBtn.setLayoutY(9.0);
 
         dialog.addActions(saveBtn, cancelBtn);
-        centerPane.getChildren().addAll(className);
+        centerPane.getChildren().addAll(className, classFee);
         dialog.setCenter(centerPane);
         bottomPane.getChildren().addAll(saveBtn, cancelBtn);
         dialog.setBottom(bottomPane);
 
-        dialog.setStyle("-fx-background-color: #00e7db; -fx-pref-height:212.0; -fx-pref-width:388.0;");
+        dialog.setStyle("-fx-background-color: #00e7db; -fx-pref-height:235.0; -fx-pref-width:401.0;");
         dialog.setShowAlwaysOnTop(false);
         dialog.setShowMinimize(false);
         dialog.setAlwaysOnTop(true);
 
         dialog.setOnClose(event1 -> {
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
         });
 
         dialog.setLayoutX(390.0);
@@ -158,8 +164,7 @@ public class ClassesController implements Initializable {
 
         cancelBtn.setOnAction(event1 -> {
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
         });
 
         AnchorPane bottomPane = new AnchorPane();
@@ -184,8 +189,7 @@ public class ClassesController implements Initializable {
 
         dialog.setOnClose(event1 -> {
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
         });
 
         dialog.setLayoutX(390.0);
@@ -200,16 +204,24 @@ public class ClassesController implements Initializable {
         dialog.setHeaderText("Edit Class");
 
         AnchorPane centerPane = new AnchorPane();
-        centerPane.setStyle(" -fx-pref-height:148.0; -fx-pref-width:366.0;");
+        centerPane.setStyle(" -fx-pref-height:142.0; -fx-pref-width:376.0;");
 
         MFXTextField className = new MFXTextField();
         className.setFloatingText("Class Name");
         className.setText(selectedClassName);
         className.setFloatMode(FloatMode.BORDER);
         className.setLayoutX(80);
-        className.setLayoutY(45);
+        className.setLayoutY(14);
+
+        MFXTextField classFee = new MFXTextField();
+        classFee.setFloatingText("Class Fee");
+        classFee.setText(selectedFee);
+        classFee.setFloatMode(FloatMode.BORDER);
+        classFee.setLayoutX(80);
+        classFee.setLayoutY(76);
 
         className.getStyleClass().add("dial-text-field");
+        classFee.getStyleClass().add("dial-text-field");
 
         MFXButton saveBtn = new MFXButton("Save");
         saveBtn.setRippleAnimateShadow(true);
@@ -230,34 +242,32 @@ public class ClassesController implements Initializable {
 
         cancelBtn.setOnAction(event1 -> {
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
         });
 
         AnchorPane bottomPane = new AnchorPane();
-        bottomPane.setStyle("-fx-pref-height: 74.0; -fx-pref-width:366.0;");
+        bottomPane.setStyle("-fx-pref-height: 46.0; -fx-pref-width:376.0;");
         bottomPane.setId("bottomPane");
 
-        saveBtn.setLayoutX(84.0);
-        cancelBtn.setLayoutX(207.0);
-        saveBtn.setLayoutY(37.0);
-        cancelBtn.setLayoutY(37.0);
+        saveBtn.setLayoutX(81.0);
+        cancelBtn.setLayoutX(204.0);
+        saveBtn.setLayoutY(9.0);
+        cancelBtn.setLayoutY(9.0);
 
         dialog.addActions(saveBtn, cancelBtn);
-        centerPane.getChildren().addAll(className);
+        centerPane.getChildren().addAll(className, classFee);
         dialog.setCenter(centerPane);
         bottomPane.getChildren().addAll(saveBtn, cancelBtn);
         dialog.setBottom(bottomPane);
 
-        dialog.setStyle("-fx-background-color: #00e7db; -fx-pref-height:212.0; -fx-pref-width:388.0;");
+        dialog.setStyle("-fx-background-color: #00e7db; -fx-pref-height:235.0; -fx-pref-width:401.0;");
         dialog.setShowAlwaysOnTop(false);
         dialog.setShowMinimize(false);
         dialog.setAlwaysOnTop(true);
 
         dialog.setOnClose(event1 -> {
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
         });
 
         dialog.setLayoutX(390.0);
@@ -301,8 +311,7 @@ public class ClassesController implements Initializable {
 
         cancelBtn.setOnAction(event1 -> {
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
         });
 
         AnchorPane bottomPane = new AnchorPane();
@@ -326,9 +335,8 @@ public class ClassesController implements Initializable {
         dialog.setAlwaysOnTop(true);
 
         dialog.setOnClose(event1 -> {
-            primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            primaryPane.setEffect(null);;
+            Animations.slideUp(primaryPane, dialog, -250);
         });
 
         dialog.setLayoutX(390.0);
@@ -341,6 +349,7 @@ public class ClassesController implements Initializable {
 
         AnchorPane centerPane = (AnchorPane) dialog.getChildren().get(1);
         MFXTextField txtClassName = (MFXTextField) centerPane.getChildren().get(0);
+        MFXTextField txtClassFee = (MFXTextField) centerPane.getChildren().get(1);
 
         AnchorPane bottomPane = (AnchorPane) dialog.getChildren().get(2);
         MFXButton saveBtn = (MFXButton) bottomPane.getChildren().get(0);
@@ -350,13 +359,23 @@ public class ClassesController implements Initializable {
                 return;
             }
 
+            if (txtClassFee.getText().isEmpty() || txtClassFee.getText().trim().isEmpty()) {
+                Alerts.AlertError("Error", "Fee Field cannot be empty");
+                return;
+            }
+
             if (Validators.isValidName(txtClassName.getText())) {
                 Alerts.AlertError("Error", "Class name must exceed 2 letters");
                 return;
             }
 
+            if (!txtClassFee.getText().matches("[0-9]+")) {
+                Alerts.AlertError("Error", "Invalid Fee");
+                return;
+            }
+
             try {
-                if ((ClassesDB.addClass(txtClassName.getText())) != 1){
+                if ((ClassesDB.addClass(txtClassName.getText(), txtClassFee.getText())) != 1){
                     Alerts.AlertError("Error", "Something went wrong");
                     txtClassName.setText("");
                     return;
@@ -366,9 +385,9 @@ public class ClassesController implements Initializable {
             }
 
             txtClassName.setText("");
+            txtClassFee.setText("");
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
             ShowTrayNotification
                     .trayNotification("Success!!!", "Class added successfully!!!",
                             AnimationType.SLIDE, NotificationType.SUCCESS);
@@ -415,8 +434,7 @@ public class ClassesController implements Initializable {
 
             txtSubjectName.setText("");
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
             ShowTrayNotification
                     .trayNotification("Success!!!", "Subject added successfully!!!",
                             AnimationType.SLIDE, NotificationType.SUCCESS);
@@ -442,12 +460,28 @@ public class ClassesController implements Initializable {
 
         AnchorPane centerPane = (AnchorPane) dialog.getChildren().get(1);
         MFXTextField txtClassName = (MFXTextField) centerPane.getChildren().get(0);
+        MFXTextField txtClassFee = (MFXTextField) centerPane.getChildren().get(1);
 
         AnchorPane bottomPane = (AnchorPane) dialog.getChildren().get(2);
         MFXButton saveBtn = (MFXButton) bottomPane.getChildren().get(0);
         saveBtn.setOnAction(event -> {
             if (txtClassName.getText().isEmpty() || txtClassName.getText().trim().isEmpty()) {
                 Alerts.AlertError("Error", "Class Name Field cannot be empty");
+                return;
+            }
+
+            if (txtClassFee.getText().isEmpty() || txtClassFee.getText().trim().isEmpty()) {
+                Alerts.AlertError("Error", "Fee Field cannot be empty");
+                return;
+            }
+
+            if (Validators.isValidName(txtClassName.getText())) {
+                Alerts.AlertError("Error", "Class name must exceed 2 letters");
+                return;
+            }
+
+            if (txtClassFee.getText().matches("[a-zA-Z]+")) {
+                Alerts.AlertError("Error", "Invalid Fee");
                 return;
             }
 
@@ -461,7 +495,7 @@ public class ClassesController implements Initializable {
             }
 
             try {
-                if ((ClassesDB.editClass(selectedClassID, txtClassName.getText()) != 1)){
+                if ((ClassesDB.editClass(selectedClassID, txtClassName.getText(), txtClassFee.getText()) != 1)){
                     Alerts.AlertError("Error", "Something went wrong");
                     ShowTrayNotification
                             .trayNotification("Error", "Class update unsuccessful",
@@ -474,8 +508,7 @@ public class ClassesController implements Initializable {
             }
 
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
             ShowTrayNotification
                     .trayNotification("Success!!!", "Class updated successfully!!!",
                             AnimationType.SLIDE, NotificationType.SUCCESS);
@@ -510,6 +543,11 @@ public class ClassesController implements Initializable {
                 return;
             }
 
+            if (Validators.isValidName(txtSubjectName.getText())) {
+                Alerts.AlertError("Error", "Subject name must exceed 2 letters");
+                return;
+            }
+
             try {
                 if ((SubjectsDB.subjectExist(txtSubjectName.getText()) == 1) && !txtSubjectName.getText().equals(selectedSubjectName)) {
                     Alerts.AlertError("Error", "Subject with this name already exists");
@@ -533,8 +571,7 @@ public class ClassesController implements Initializable {
             }
 
             primaryPane.setEffect(null);
-            AnchorPane mainPane = (AnchorPane) primaryPane.getParent();
-            Animations.slideUp(mainPane, dialog, -250);
+            Animations.slideUp(primaryPane, dialog, -250);
             ShowTrayNotification
                     .trayNotification("Success!!!", "Subject updated successfully!!!",
                             AnimationType.SLIDE, NotificationType.SUCCESS);
@@ -614,6 +651,7 @@ public class ClassesController implements Initializable {
             Class classItem = new Class();
             classItem.setClassID(rs.getInt(Class.CLASS_ID));
             classItem.setClassName(rs.getString(Class.CLASS_NAME));
+            classItem.setClassFee(rs.getString(Class.CLASS_FEE));
             classes.add(classItem);
         }
         classTableView.setItems(classes);
@@ -621,11 +659,13 @@ public class ClassesController implements Initializable {
         assert classTableView != null : "No registered class!";
         columnClassID.setCellValueFactory(new PropertyValueFactory<>("classID"));
         columnClassName.setCellValueFactory(new PropertyValueFactory<>("className"));
+        columnFee.setCellValueFactory(new PropertyValueFactory<>("classFee"));
 
         classTableView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal != null) {
                 selectedClassID = newVal.getClassID();
                 selectedClassName = newVal.getClassName();
+                selectedFee = newVal.getClassFee();
             }
         });
     }

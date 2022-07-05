@@ -24,23 +24,37 @@ public class ClassesDB {
     }
 
     public static ResultSet getClasses() throws SQLException {
-        String query = "SELECT * FROM " + DBConstants.TABLE_CLASSES + ";";
+        String query = "SELECT * FROM " + DBConstants.TABLE_CLASSES + " ORDER BY class_id ASC;";
         preparedStatement = connection.prepareStatement(query);
         return preparedStatement.executeQuery();
     }
 
-    public static int addClass(String className) throws SQLException {
-        String query = "INSERT INTO " + DBConstants.TABLE_CLASSES + "(" + Class.CLASS_NAME + ") VALUES (?);";
+    public static String getFee(String className) throws SQLException {
+        String query = "SELECT " + Class.CLASS_FEE + " FROM " + DBConstants.TABLE_CLASSES + " WHERE " + Class.CLASS_NAME + " = ?;";
         preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, className);
+        ResultSet rs = preparedStatement.executeQuery();
+        String fee = "";
+        while (rs.next()) {
+            fee = rs.getString(Class.CLASS_FEE);
+        }
+        return fee;
+    }
+
+    public static int addClass(String className, String classFee) throws SQLException {
+        String query = "INSERT INTO " + DBConstants.TABLE_CLASSES + "(" + Class.CLASS_NAME + ", " + Class.CLASS_FEE + ") VALUES (?, ?);";
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, className);
+        preparedStatement.setInt(2, Integer.parseInt(classFee));
         return preparedStatement.executeUpdate();
     }
 
-    public static int editClass(int classID, String className) throws SQLException {
-        String query = "UPDATE " + DBConstants.TABLE_CLASSES + " SET " + Class.CLASS_NAME + " = ? WHERE " + Class.CLASS_ID + " = ?;";
+    public static int editClass(int classID, String className, String classFee) throws SQLException {
+        String query = "UPDATE " + DBConstants.TABLE_CLASSES + " SET " + Class.CLASS_NAME + " = ?, " + Class.CLASS_FEE + " = ? WHERE " + Class.CLASS_ID + " = ?;";
         preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, className);
-        preparedStatement.setInt(2, classID);
+        preparedStatement.setInt(2, Integer.parseInt(AccountsDB.stripMoney(classFee)));
+        preparedStatement.setInt(3, classID);
         return preparedStatement.executeUpdate();
     }
 

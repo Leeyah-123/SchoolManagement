@@ -21,7 +21,7 @@ public class ExpensesDB {
     }
 
     public static ResultSet getRecords() {
-        String query = "SELECT * FROM " + DBConstants.TABLE_EXPENSES + ";";
+        String query = "SELECT * FROM " + DBConstants.TABLE_EXPENSES + " ORDER BY record_id ASC;";
         ResultSet rs;
         try {
             preparedStatement = connection.prepareStatement(query);

@@ -2,7 +2,7 @@ package com.school_management.models;
 
 public class RecursiveUser {
         private int teacherID;
-        private String firstName, lastName, email, gender, number, password, username, role, phoneNum;
+        private String firstName, lastName, email, gender, number, password, username, role, phoneNum, suspended;
 
         public RecursiveUser() {
 
@@ -77,4 +77,12 @@ public class RecursiveUser {
         public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
+
+        public String getSuspended() {
+            return suspended;
+        }
+
+        public void setSuspended(String suspended) {
+            this.suspended = suspended;
+        }
 }

@@ -5,7 +5,7 @@ import com.school_management.utils.DBConstants;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -65,12 +65,16 @@ public class SessionDB {
         } else return 0.0;
     }
 
-    public static int editSessionDetails(String startDate, String endDate) throws SQLException {
+    public static int editSessionDetails(LocalDate startDate, LocalDate endDate) {
         String query = "UPDATE " + DBConstants.TABLE_SESSION + " SET " + Session.START_DATE + " = ?, " + Session.END_DATE + " = ?;";
-        preparedStatement = connection.prepareStatement(query);
-        preparedStatement.setString(1, startDate);
-        preparedStatement.setString(2, endDate);
-        return preparedStatement.executeUpdate();
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setDate(1, java.sql.Date.valueOf(startDate));
+            preparedStatement.setDate(2, java.sql.Date.valueOf(endDate));
+            return preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static String sessionString() throws SQLException {

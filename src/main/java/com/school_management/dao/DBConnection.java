@@ -67,11 +67,13 @@ public class DBConnection {
                     Student.STUDENT_FIRST_NAME + " varchar NOT NULL," +
                     Student.STUDENT_LAST_NAME + " varchar NOT NULL," +
                     Student.STUDENT_GENDER + " varchar(6) NOT NULL," +
+                    Student.STUDENT_EMAIL_ADDRESS + " varchar NOT NULL," +
                     Student.STUDENT_NUMBER + " varchar NOT NULL," +
                     Student.STUDENT_CLASS + " varchar NOT NULL," +
                     Student.STUDENT_FEE + " money NOT NULL," +
                     Student.STUDENT_REG_DATE + " date NOT NULL DEFAULT CURRENT_DATE," +
-                    Student.STUDENT_BALANCE + " money" +
+                    Student.STUDENT_BALANCE + " money," +
+                    Student.UPDATED_AT + " timestamp" +
                     ");";
 
             // accounts table
@@ -121,7 +123,8 @@ public class DBConnection {
             // classes table
             String classesTable = "CREATE TABLE IF NOT EXISTS public." + DBConstants.TABLE_CLASSES + "(" +
                     Class.CLASS_ID + " SERIAL PRIMARY KEY NOT NULL," +
-                    Class.CLASS_NAME + " varchar UNIQUE NOT NULL" +
+                    Class.CLASS_NAME + " varchar UNIQUE NOT NULL," +
+                    Class.CLASS_FEE + " money NOT NULL" +
                     ");";
 
             // session table

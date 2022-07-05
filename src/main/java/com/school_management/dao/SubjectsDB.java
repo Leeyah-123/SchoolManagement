@@ -24,7 +24,7 @@ public class SubjectsDB {
     }
 
     public static ResultSet getSubjects() throws SQLException {
-        String query = "SELECT * FROM " + DBConstants.TABLE_SUBJECTS + ";";
+        String query = "SELECT * FROM " + DBConstants.TABLE_SUBJECTS + " ORDER BY subject_id ASC;";
         preparedStatement = connection.prepareStatement(query);
         return preparedStatement.executeQuery();
     }
