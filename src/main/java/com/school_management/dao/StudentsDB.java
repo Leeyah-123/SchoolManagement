@@ -22,7 +22,7 @@ public class StudentsDB {
     }
 
     public static ResultSet getStudents() throws SQLException {
-        String query = "SELECT * FROM " + DBConstants.TABLE_STUDENTS + ";";
+        String query = "SELECT * FROM " + DBConstants.TABLE_STUDENTS + " ORDER BY student_id ASC;";
         preparedStatement = connection.prepareStatement(query);
         return preparedStatement.executeQuery();
     }
@@ -99,7 +99,7 @@ public class StudentsDB {
     }
 
     public static String countGender(String gender) throws SQLException {
-        String query = "SELECT * FROM " + DBConstants.TABLE_STUDENTS + " WHERE " + Student.STUDENT_GENDER + " = '" + gender + "';";
+        String query = "SELECT * FROM " + DBConstants.TABLE_STUDENTS + " WHERE " + Student.STUDENT_GENDER + " = '" + gender + "' ORDER BY student_id ASC;";
         preparedStatement = connection.prepareStatement(query);
         ResultSet rs = preparedStatement.executeQuery();
         int numStudents = 0;
@@ -108,7 +108,7 @@ public class StudentsDB {
     }
 
     public static ResultSet search(String searchString) throws SQLException {
-        String query = "SELECT * FROM " + DBConstants.TABLE_STUDENTS + "WHERE (" + Student.STUDENT_FIRST_NAME + " ~* ? OR " + Student.STUDENT_LAST_NAME + " ~* ? OR " + Student.STUDENT_EMAIL_ADDRESS + " ~* ?);";
+        String query = "SELECT * FROM " + DBConstants.TABLE_STUDENTS + " WHERE (" + Student.STUDENT_FIRST_NAME + " ~* ? OR " + Student.STUDENT_LAST_NAME + " ~* ? OR " + Student.STUDENT_EMAIL_ADDRESS + " ~* ?) ORDER BY student_id ASC;";
         preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, searchString);
         preparedStatement.setString(2, searchString);

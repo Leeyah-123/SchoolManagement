@@ -386,6 +386,7 @@ public class ClassesController implements Initializable {
 
             txtClassName.setText("");
             txtClassFee.setText("");
+            Alerts.AlertInfo("Info", "Class added successfully");
             primaryPane.setEffect(null);
             Animations.slideUp(primaryPane, dialog, -250);
             ShowTrayNotification

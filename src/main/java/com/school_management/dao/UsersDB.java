@@ -80,24 +80,54 @@ public class UsersDB {
     }
 
     // editing user details
-    public int editUser(int id, String firstName, String lastName, String gender, String number) {
+    public static int editPersonalDetails(int id, String firstName, String lastName, String gender, String number, String email) {
         String query = "UPDATE " + DBConstants.TABLE_USERS + " SET " + User.USER_FIRST_NAME + " =?, " +
-                User.USER_LAST_NAME + " =?, " + User.USER_GENDER + "=?, " + User.USER_NUMBER + " =? " +
-                " WHERE id = ?;";
+                User.USER_LAST_NAME + " =?, " + User.USER_GENDER + " =?, " + User.USER_NUMBER + " =?, " +
+                User.USER_EMAIL + "=? WHERE id = ?;";
         try {
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, firstName);
             preparedStatement.setString(2, lastName);
             preparedStatement.setString(3, gender);
             preparedStatement.setString(4, number);
-            preparedStatement.setInt(5, id);
+            preparedStatement.setString(5, email);
+            preparedStatement.setInt(6, id);
 
             return preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, e.getMessage(), e);
+            Logger.getLogger(UsersDB.class.getName()).log(Level.SEVERE, e.getMessage(), e);
             return -1;
         }
+    }
+
+    // editing user password
+    public static int editPassword(String password) {
+        String query = "UPDATE " + DBConstants.TABLE_USERS + " SET " + User.USER_PASSWORD + " =? WHERE id = ?;";
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, password);
+            preparedStatement.setInt(2, CurrentUser.getUserID());
+
+            return preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            Logger.getLogger(UsersDB.class.getName()).log(Level.SEVERE, e.getMessage(), e);
+            return -1;
+        }
+    }
+
+    public static ResultSet getUserDetails() {
+        String query = "SELECT * FROM " + DBConstants.TABLE_USERS + " WHERE " + User.USER_ID + " = ?;";
+        ResultSet rs = null;
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, CurrentUser.getUserID());
+            rs = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            Logger.getLogger(UsersDB.class.getName()).log(Level.SEVERE, e.getMessage(), e);
+        }
+        return rs;
     }
     
     // editing user role

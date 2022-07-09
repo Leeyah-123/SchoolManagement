@@ -7,21 +7,16 @@ import io.github.palexdev.materialfx.controls.MFXCheckbox;
 import io.github.palexdev.materialfx.controls.MFXPasswordField;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import org.apache.commons.codec.DecoderException;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 
-import java.io.IOException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.sql.SQLException;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
@@ -61,7 +56,7 @@ public class LoginController implements Initializable {
         // writing user into file
         UserWriter.encodeUserToFile(txtEmail.getText(), txtPassword.getText(), rememberMe.isSelected());
 
-        String username = DBUtil.currentUsername();
+        String username = CurrentUser.currentUsername();
         resetLoginProperties();
         ShowTrayNotification
                 .trayNotification("Login success", "Welcome back " + username,

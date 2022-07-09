@@ -66,6 +66,5 @@
       </AnchorPane>
       <AnchorPane fx:id="spinnerPane" layoutX="383.0" layoutY="204.0" prefHeight="128.0" prefWidth="158.0" visible="false">
             <MFXProgressSpinner layoutX="54.0" layoutY="39.0" />
-            <Label alignment="CENTER" layoutX="-1.0" layoutY="99.0" prefHeight="15.0" prefWidth="158.0" text="Redirecting..." />
       </AnchorPane>
 </AnchorPane>

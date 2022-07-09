@@ -236,6 +236,10 @@ public class StudentsController implements Initializable {
                     Alerts.AlertError("Error", "Something went wrong");
                     return;
                 }
+                if (AccountsDB.addRecord("credit", "Payment of student registration fee", txtAmount.getText(), AccountsDB.currentBalance() + Integer.parseInt(AccountsDB.stripMoney(txtAmount.getText()))) != 1) {
+                    Alerts.AlertError("Error", "Something went wrong");
+                    return;
+                }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -457,9 +461,32 @@ public class StudentsController implements Initializable {
 
             try {
                 if (Alerts.AlertConfirmation("Confirmation", "Are you sure you want to edit this student's records?") == ButtonType.OK) {
-                    if (StudentsDB.updateStudent(selectedID, txtFirstname.getText(), txtLastname.getText(), gender, txtEmail.getText(), txtMobileNumber.getText(), choiceBox.getValue(), AccountsDB.stripMoney(txtAmount.getText()), AccountsDB.stripMoney(txtBalance.getText())) != 1) {
-                        Alerts.AlertError("Error", "Something went wrong");
-                        return;
+                    if (!txtAmount.getText().equals(AccountsDB.stripMoney(selectedAmount))) {
+                        String eventType;
+                        String desc;
+                        int amount;
+                        int balance;
+                        if (Integer.parseInt(txtAmount.getText()) > Integer.parseInt(AccountsDB.stripMoney(selectedAmount))) {
+                            eventType = "credit";
+                            desc = "Payment of student registration fee balance";
+                            amount = Integer.parseInt(txtAmount.getText()) - Integer.parseInt(selectedAmount);
+                            balance = AccountsDB.currentBalance() + amount;
+                        } else {
+                            eventType = "debit";
+                            desc = "Student fee payment correction";
+                            amount = Integer.parseInt(AccountsDB.stripMoney(selectedAmount)) -  Integer.parseInt(txtAmount.getText());
+                            balance = AccountsDB.currentBalance() - amount;
+
+                            if (balance < 1) {
+                                Alerts.AlertError("Error", "Insufficient account balance to make deduction");
+                                return;
+                            }
+                        }
+                        if (StudentsDB.updateStudent(selectedID, txtFirstname.getText(), txtLastname.getText(), gender, txtEmail.getText(), txtMobileNumber.getText(), choiceBox.getValue(), txtAmount.getText(), AccountsDB.stripMoney(txtBalance.getText())) != 1) {
+                            Alerts.AlertError("Error", "Something went wrong");
+                            return;
+                        }
+                        AccountsDB.addRecord(eventType, desc, String.valueOf(amount), balance);
                     }
                 }
             } catch (SQLException e) {

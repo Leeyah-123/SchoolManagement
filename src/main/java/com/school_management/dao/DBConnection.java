@@ -3,12 +3,12 @@ package com.school_management.dao;
 import com.school_management.models.*;
 import com.school_management.models.Class;
 import com.school_management.utils.DBConstants;
+import com.school_management.utils.DBUtil;
 import com.school_management.utils.config.db.DBDataSource;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -29,6 +29,7 @@ public class DBConnection {
 
     public DBConnection() {
         createTables();
+        initializeSession();
     }
 
     // connection method for connecting to the database
@@ -146,6 +147,34 @@ public class DBConnection {
             statement.executeUpdate(sessionTable);
 
             Logger.getLogger(getClass().getName()).log(Level.INFO, "All tables successfully loaded");
+        } catch (SQLException e) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, e.getMessage(), e);
+            e.printStackTrace();
+        }
+    }
+
+    // initialization of session
+    private void initializeSession() {
+        try {
+            String query = "SELECT COUNT(" + Session.SESSION_ID + ") FROM " + DBConstants.TABLE_SESSION + ";";
+            Statement statement = connection().createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            if (!rs.next()) {
+                String initSession = "INSERT INTO " + DBConstants.TABLE_SESSION + "(" +
+                        Session.START_DATE + ", " +
+                        Session.END_DATE + ") VALUES (?, ?);";
+
+                java.util.Date currentDay = new java.util.Date();
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                String startDate = dateFormat.format(currentDay);
+                String[] dateArray = startDate.split("-");
+                String endDate = (1 + Integer.parseInt(dateArray[0])) + "-" + dateArray[1] + "-" + dateArray[2];
+
+                PreparedStatement preparedStatement = connection().prepareStatement(initSession);
+                preparedStatement.setDate(1, java.sql.Date.valueOf(startDate));
+                preparedStatement.setDate(2, java.sql.Date.valueOf(endDate));
+                preparedStatement.executeUpdate();
+            }
         } catch (SQLException e) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, e.getMessage(), e);
             e.printStackTrace();

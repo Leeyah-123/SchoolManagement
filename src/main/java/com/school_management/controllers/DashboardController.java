@@ -386,7 +386,7 @@ public class DashboardController implements Initializable {
     }
     private void setLabels() throws DecoderException, SQLException {
         numClasses.setText(String.valueOf(GeneralDB.getClassNum(loggedUserID)));
-        lblName.setText(DBUtil.currentUsername());
+        lblName.setText(CurrentUser.currentUsername());
         lblSession.setText(SessionDB.sessionString());
     }
     private void setImage() throws SQLException {

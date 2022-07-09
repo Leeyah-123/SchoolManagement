@@ -27,6 +27,7 @@ public class SceneController {
         mainPane.lookup("#primaryPane").setLayoutX(259.0);
         mainPane.lookup("#primaryPane").setLayoutY(7.0);
     }
+
     public static void switchScene(String dir, AnchorPane mainPane) {
         Parent pane = null;
         try {

@@ -1,12 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import io.github.palexdev.materialfx.controls.legacy.MFXLegacyComboBox?>
+<?import io.github.palexdev.materialfx.controls.legacy.MFXLegacyTableView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.school_management.controllers.ProfileController"
-            fx:id="primaryPane" prefHeight="695.0" prefWidth="759.0"
+<AnchorPane fx:id="primaryPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="695.0" prefWidth="759.0" snapToPixel="false"
             style="-fx-background-color: #00e7db; -fx-border-radius: 30; -fx-background-radius: 30;"
-            stylesheets="@../styles/styles.css">
-
+            stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.school_management.controllers.ProfileController">
+   <AnchorPane layoutX="21.0" layoutY="138.0" prefHeight="508.0" prefWidth="312.0"
+               style="-fx-background-color: white; -fx-background-radius: 5;">
+      <effect>
+         <DropShadow/>
+      </effect>
+      <ImageView fitHeight="102.0" fitWidth="110.0" layoutX="105.0" layoutY="-51.0" pickOnBounds="true"
+                 preserveRatio="true">
+         <effect>
+            <DropShadow/>
+         </effect>
+         <Image url="@../images/female_profile.png"/>
+      </ImageView>
+      <Label alignment="CENTER" layoutY="53.0" prefHeight="15.0" prefWidth="312.0" text="Personal Information"
+             textFill="#6200ee">
+         <font>
+            <Font size="21.0"/>
+         </font>
+      </Label>
+      <MFXTextField fx:id="txtFirstname" borderGap="4.0" editable="false" floatMode="BORDER" floatingText="Firstname"
+                    floatingTextGap="4.0" layoutX="50.0" layoutY="103.0" prefHeight="39.0" prefWidth="211.0"
+                    style="-fx-background-color: transparent; -fx-border-radius: 0; -fx-border-color: transparent transparent black transparent;"
+                    text="Aaliyah"/>
+      <MFXTextField fx:id="txtLastname" borderGap="4.0" editable="false" floatMode="BORDER" floatingText="Lastname"
+                    floatingTextGap="4.0" layoutX="53.0" layoutY="179.0" prefHeight="39.0" prefWidth="211.0"
+                    style="-fx-background-color: transparent; -fx-border-radius: 0; -fx-border-color: transparent transparent black transparent;"
+                    text="Junaid"/>
+      <MFXTextField fx:id="txtNumber" borderGap="4.0" editable="false" floatMode="BORDER"
+                    floatingText="Mobile Number" floatingTextGap="4.0" layoutX="52.0" layoutY="333.0"
+                    prefHeight="39.0" prefWidth="211.0"
+                    style="-fx-background-color: transparent; -fx-border-radius: 0; -fx-border-color: transparent transparent black transparent;"
+                    text="09054253327"/>
+      <MFXButton buttonType="RAISED" text="" depthLevel="LEVEL5" layoutX="261.0" layoutY="32.0" onAction="#editDetails"
+                 prefHeight="39.0" prefWidth="33.0" rippleAnimateShadow="true" rippleBackgroundOpacity="0.2"
+                 rippleRadius="2.0" snapToPixel="false"
+                 style="-fx-background-radius: 100 100 100 100; -fx-border-radius: 100 100 100 100; -fx-background-color: white;"
+                 textFill="#6200ee">
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND"/>
+               </cursor>
+               <Image url="@../images/icons8-edit-64.png"/>
+            </ImageView>
+         </graphic>
+      </MFXButton>
+      <MFXTextField fx:id="txtEmail" borderGap="4.0" editable="false" floatMode="BORDER" floatingText="Email"
+                    floatingTextGap="4.0" layoutX="52.0" layoutY="410.0" prefHeight="39.0" prefWidth="211.0"
+                    style="-fx-background-color: transparent; -fx-border-radius: 0; -fx-border-color: transparent transparent black transparent;"
+                    text="junaidaaliyah260@gmail.com"/>
+      <MFXLegacyComboBox fx:id="txtGender" disable="true" layoutX="53.0" layoutY="268.0" lineColor="BLACK"
+                         lineStrokeWidth="1.0" prefHeight="21.0" prefWidth="211.0"/>
+      <Label layoutX="58.0" layoutY="247.0" text="Gender">
+         <font>
+            <Font size="12.0"/>
+         </font>
+      </Label>
+      <MFXButton fx:id="btnSave" buttonType="RAISED" depthLevel="LEVEL5" layoutX="132.0" layoutY="470.0"
+                 onAction="#saveDetails" style="-fx-background-color: #6100ee; -fx-border-radius: 10;" text="Save"
+                 textFill="WHITE" visible="false"/>
+   </AnchorPane>
+   <AnchorPane prefHeight="57.0" prefWidth="759.0"
+               style="-fx-background-color: #6200ee; -fx-background-radius: 30 30 0 0;">
+      <Label alignment="CENTER" layoutY="9.0" prefHeight="35.0" prefWidth="759.0" text="Profile" textFill="#f9f6ff">
+         <font>
+            <Font name="System Bold" size="30.0"/>
+         </font>
+      </Label>
+   </AnchorPane>
+   <MFXLegacyTableView fx:id="tableView" layoutX="360.0" layoutY="182.0" prefHeight="464.0" prefWidth="377.0"
+                       tableMenuButtonVisible="true">
+      <columns>
+         <TableColumn fx:id="columnClassName" editable="false" prefWidth="247.0" text="Classname"/>
+         <TableColumn fx:id="columnSubject" editable="false" prefWidth="242.0" text="Subject Taught"/>
+      </columns>
+      <columnResizePolicy>
+         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+      </columnResizePolicy>
+      <effect>
+         <DropShadow/>
+      </effect>
+   </MFXLegacyTableView>
+   <AnchorPane layoutX="360.0" layoutY="138.0" prefHeight="39.0" prefWidth="377.0"
+               style="-fx-background-color: #6200ee; -fx-background-radius: 5;">
+      <effect>
+         <DropShadow height="9.14" radius="3.3275" spread="0.05" width="6.17"/>
+      </effect>
+      <Label alignment="CENTER" prefHeight="39.0" prefWidth="377.0" text="Your classes" textFill="WHITE"
+             AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+             AnchorPane.topAnchor="0.0">
+         <font>
+            <Font size="21.0"/>
+         </font>
+      </Label>
+   </AnchorPane>
+   <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="583.0" layoutY="88.0" onAction="#changePassword"
+              style="-fx-background-radius: 3;" text="Change Password">
+      <graphic>
+         <ImageView fitHeight="31.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+            <Image url="@../images/icons8-edit-64.png"/>
+         </ImageView>
+      </graphic>
+   </MFXButton>
 </AnchorPane>
