@@ -14,15 +14,19 @@ import java.nio.file.Paths;
 
 public class UserWriter {
     private static final Base64 base64 = new Base64();
-    public static boolean contains = System.getProperty("user.dir").contains("/");
+    private static final boolean contains = System.getProperty("user.dir").contains("/");
 
     public UserWriter() {
-        String file_path;
+        String[] dir;
+        String USERDATAFILE;
         if (contains) {
-            file_path = Constants.USERDATAFILE;
+            dir = System.getProperty("user.dir").split("/");
+            USERDATAFILE = "/" + dir[1] + "/" + dir[2] + "/" + "userData/currentUser.sm";
         } else {
-            file_path = Constants.WINDOWSUSERDATAFILE;
+            dir = System.getProperty("user.dir").split("\\\\");
+            USERDATAFILE = dir[0] + "\\" + dir[1] + "\\" + "userData\\currentUser.sm";
         }
+        String file_path = USERDATAFILE;
         Path path = Paths.get(file_path);
         if (!Files.isDirectory(path)) {
             try {
@@ -36,32 +40,38 @@ public class UserWriter {
 
     private static void writeToFIle(Auth auth) {
         Gson gson = new Gson();
+        String[] dir;
+        String USERDATAFILE;
         if (contains) {
-            try (Writer writer = new FileWriter(Constants.USERDATAFILE)) {
-                gson.toJson(auth, writer);
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-                ex.printStackTrace();
-            }
+            dir = System.getProperty("user.dir").split("/");
+            USERDATAFILE = "/" + dir[1] + "/" + dir[2] + "/" + "userData/currentUser.sm";
         } else {
-            try (Writer writer = new FileWriter(Constants.WINDOWSUSERDATAFILE)) {
-                gson.toJson(auth, writer);
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-                ex.printStackTrace();
-            }
+            dir = System.getProperty("user.dir").split("\\\\");
+            USERDATAFILE = dir[0] + "\\" + dir[1] + "\\" + "userData\\currentUser.sm";
+        }
+
+        try (Writer writer = new FileWriter(USERDATAFILE)) {
+            gson.toJson(auth, writer);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+            ex.printStackTrace();
         }
     }
 
     public static Auth getCurrentUser() throws DecoderException {
+        String[] dir;
         String file_path = "";
+        String USERDATAFILE;
         if (contains) {
-            String[] dir = Constants.dir;
+            dir = System.getProperty("user.dir").split("/");
             file_path = "/" + dir[1] + "/" + dir[2] + "/" + "userData";
+            USERDATAFILE = "/" + dir[1] + "/" + dir[2] + "/" + "userData/currentUser.sm";
         } else {
-            String[] dir = Constants.windowsDir;
-            file_path = dir[0] + "\\\\" + dir[1] + "\\\\" + "userData";
+            dir = System.getProperty("user.dir").split("\\\\");
+            file_path = dir[0] + "\\" + dir[1] + "\\" + "userData";
+            USERDATAFILE = dir[0] + "\\" + dir[1] + "\\" + "userData\\currentUser.sm";
         }
+
         Path path = Paths.get(file_path);
         if (!Files.isDirectory(path)) {
             try {
@@ -71,7 +81,7 @@ public class UserWriter {
                 if (contains) {
                     myObj = new File(file_path + "/currentUser.sm");
                 } else {
-                    myObj = new File(file_path + "\\\\currentUser.sm");
+                    myObj = new File(file_path + "\\currentUser.sm");
                 }
 
                 if (myObj.createNewFile()) {
@@ -87,20 +97,11 @@ public class UserWriter {
 
         Gson gson = new Gson();
         Auth auth = new Auth();
-        if (contains) {
-            try (Reader reader = new FileReader(Constants.USERDATAFILE)) {
-                auth = gson.fromJson(reader, Auth.class);
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-                ex.printStackTrace();
-            }
-        } else {
-            try (Reader reader = new FileReader(Constants.WINDOWSUSERDATAFILE)) {
-                auth = gson.fromJson(reader, Auth.class);
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-                ex.printStackTrace();
-            }
+        try (Reader reader = new FileReader(USERDATAFILE)) {
+            auth = gson.fromJson(reader, Auth.class);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+            ex.printStackTrace();
         }
 
         String decodedUser;
@@ -137,20 +138,21 @@ public class UserWriter {
     }
 
     public static void clearCurrentUser() {
+        String[] dir;
+        String USERDATAFILE;
         if (contains) {
-            try (Writer writer = new FileWriter(Constants.USERDATAFILE)) {
-                writer.write("");
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-                ex.printStackTrace();
-            }
+            dir = System.getProperty("user.dir").split("/");
+            USERDATAFILE = "/" + dir[1] + "/" + dir[2] + "/" + "userData/currentUser.sm";
         } else {
-            try (Writer writer = new FileWriter(Constants.WINDOWSUSERDATAFILE)) {
-                writer.write("");
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-                ex.printStackTrace();
-            }
+            dir = System.getProperty("user.dir").split("\\\\");
+            USERDATAFILE = dir[0] + "\\" + dir[1] + "\\" + "userData\\currentUser.sm";
+        }
+
+        try (Writer writer = new FileWriter(USERDATAFILE)) {
+            writer.write("");
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+            ex.printStackTrace();
         }
     }
 }

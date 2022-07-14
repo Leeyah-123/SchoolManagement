@@ -20,15 +20,6 @@ public final class Constants {
     //config
     public static String DATABASE_CONFIG_DIR = "dbConfig.properties";
 
-    // file data
-    public static String[] dir = System.getProperty("user.dir").split("/");
-
-    public static String[] windowsDir = System.getProperty("user.dir").split("\\\\");
-
-    public static String USERDATAFILE = "/" + dir[1] + "/" + dir[2] + "/" + "userData/currentUser.sm";
-
-    public static String WINDOWSUSERDATAFILE = ""; // windowsDir[0] + "\\\\" + windowsDir[1] + "\\\\" + "userData/currentUser.sm";
-
     // images
     public static final String FEMALE_PROFILE = "file:/home/leeyah/IdeaProjects/SchoolManagement/target/classes/com/school_management/images/female_profile.png";
     public static final String MALE_PROFILE = "file:/home/leeyah/IdeaProjects/SchoolManagement/target/classes/com/school_management/images/male_profile.png";
