@@ -54,15 +54,17 @@ public class SessionDB {
         double currentDate = Double.parseDouble(currentDateArray[0]);
         double currentMonth = Double.parseDouble(currentDateArray[1]);
         double currentYear = Double.parseDouble(currentDateArray[2]);
-        double interval = (endYear-startYear) * 12;
 
-        if (currentYear < endYear) {
-            if (startMonth < currentMonth) {
-                if (currentDate >= startDate) {
-                    return ((currentMonth - startMonth) /interval);
-                } else return 0;
-            } else return 0.0;
-        } else return 0.0;
+        double sessionProgress = 0.0;
+        if (endYear >= currentYear && currentYear >= startYear && currentMonth >= startMonth) {
+            if (currentMonth == startMonth && currentDate < startDate) sessionProgress = 0.0;
+            else if (startMonth <= currentMonth) {
+                sessionProgress = ((currentYear - startYear) + ((currentMonth - startMonth) / 12));
+            } else {
+                sessionProgress = ((currentYear - startYear) + (((currentMonth + 12) - startMonth) / 12));
+            }
+        }
+        return sessionProgress;
     }
 
     public static int editSessionDetails(LocalDate startDate, LocalDate endDate) {

@@ -6,25 +6,13 @@
     -fx-cursor: HAND;
 }
 
-.nav_button {
-    /*-fx-text-fill: #0DD8A2;*/
-    /*-fx-background-color: #fff;*/
-}
-
 .nav_button:hover {
     -fx-background-color: #86F2D3;
     -fx-text-fill: #0DD8A2;
 }
 
-.nav_button_active {
-    /*-fx-border-color: #0DD8A2;*/
-    /*-fx-border-width: 0 5 0 0;*/
-    /*-fx-border-style: solid;*/
-    /*-fx-text-fill: #0DD8A2;*/
-}
-
 .list-cell:filled:selected:focused, .list-cell:filled:selected {
-    -fx-background-color:  #6200ee /* linear-gradient(#e5f0ff 0%, #e9f1ff 25%, #edefff 75%, #fbe7fa 100%) */;
+    -fx-background-color:  #6200ee;
     -fx-text-fill: white;
 }
 
@@ -37,7 +25,7 @@
 }
 
 .tree-table-cell:odd { -fx-background-color: white;}
-.tree-table-cell:even { -fx-background-color: green /*#f6f5f4*/; }
+.tree-table-cell:even { -fx-background-color: green; }
 
 .tree-table-view:focused .tree-table-row-cell:selected {
     -fx-background-color: -fx-tree-table-color;

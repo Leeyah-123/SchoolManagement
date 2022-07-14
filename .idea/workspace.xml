@@ -5,26 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22873812-5423-4269-a259-511a53073cad" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/school_management/controllers/ClassesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/school_management/controllers/ClassesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/school_management/controllers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/school_management/controllers/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/school_management/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/school_management/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/school_management/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/school_management/controllers/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/school_management/controllers/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/school_management/controllers/SignupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/school_management/controllers/StudentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/school_management/controllers/StudentsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/school_management/dao/AccountsDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/school_management/dao/AccountsDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/school_management/dao/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/school_management/dao/DBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/school_management/dao/StudentsDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/school_management/dao/StudentsDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/school_management/dao/UsersDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/school_management/dao/UsersDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/school_management/utils/CurrentUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/school_management/utils/CurrentUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/school_management/utils/DBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/school_management/utils/DBUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/school_management/utils/SceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/school_management/utils/SceneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/school_management/fxml/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/school_management/fxml/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/school_management/fxml/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/school_management/fxml/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/school_management/fxml/profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/school_management/fxml/profile.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/school_management/fxml/signup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/school_management/fxml/signup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/school_management/fxml/statistics.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/school_management/fxml/statistics.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/school_management/dao/SessionDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/school_management/dao/SessionDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/school_management/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/school_management/styles/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +159,9 @@
       <workItem from="1656935374446" duration="11572000" />
       <workItem from="1657013430415" duration="27021000" />
       <workItem from="1657181481685" duration="10149000" />
-      <workItem from="1657315147758" duration="13140000" />
+      <workItem from="1657315147758" duration="13688000" />
+      <workItem from="1657451410014" duration="385000" />
+      <workItem from="1657790259098" duration="3904000" />
     </task>
     <servers />
   </component>
