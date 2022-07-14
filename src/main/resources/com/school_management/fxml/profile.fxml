@@ -24,7 +24,7 @@
       <effect>
          <DropShadow/>
       </effect>
-      <ImageView fitHeight="102.0" fitWidth="110.0" layoutX="105.0" layoutY="-51.0" pickOnBounds="true"
+      <ImageView fx:id="imageView" fitHeight="102.0" fitWidth="110.0" layoutX="105.0" layoutY="-51.0" pickOnBounds="true"
                  preserveRatio="true">
          <effect>
             <DropShadow/>
@@ -40,16 +40,16 @@
       <MFXTextField fx:id="txtFirstname" borderGap="4.0" editable="false" floatMode="BORDER" floatingText="Firstname"
                     floatingTextGap="4.0" layoutX="50.0" layoutY="103.0" prefHeight="39.0" prefWidth="211.0"
                     style="-fx-background-color: transparent; -fx-border-radius: 0; -fx-border-color: transparent transparent black transparent;"
-                    text="Aaliyah"/>
+                    />
       <MFXTextField fx:id="txtLastname" borderGap="4.0" editable="false" floatMode="BORDER" floatingText="Lastname"
                     floatingTextGap="4.0" layoutX="53.0" layoutY="179.0" prefHeight="39.0" prefWidth="211.0"
                     style="-fx-background-color: transparent; -fx-border-radius: 0; -fx-border-color: transparent transparent black transparent;"
-                    text="Junaid"/>
+                    />
       <MFXTextField fx:id="txtNumber" borderGap="4.0" editable="false" floatMode="BORDER"
                     floatingText="Mobile Number" floatingTextGap="4.0" layoutX="52.0" layoutY="333.0"
                     prefHeight="39.0" prefWidth="211.0"
                     style="-fx-background-color: transparent; -fx-border-radius: 0; -fx-border-color: transparent transparent black transparent;"
-                    text="09054253327"/>
+                    />
       <MFXButton buttonType="RAISED" text="" depthLevel="LEVEL5" layoutX="261.0" layoutY="32.0" onAction="#editDetails"
                  prefHeight="39.0" prefWidth="33.0" rippleAnimateShadow="true" rippleBackgroundOpacity="0.2"
                  rippleRadius="2.0" snapToPixel="false"

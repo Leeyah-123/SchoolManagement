@@ -25,6 +25,8 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.BoxBlur;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
@@ -61,6 +63,8 @@ public class ProfileController implements Initializable {
     private TableColumn<General, String> columnClassName;
     @FXML
     private TableColumn<General, String> columnSubject;
+    @FXML
+    private ImageView imageView;
 
     UsersDB usersDB = new UsersDB();
     ObservableList<General> userDetails = FXCollections.observableArrayList();
@@ -390,6 +394,16 @@ public class ProfileController implements Initializable {
         stage.show();
     }
 
+    private void setImage() throws SQLException {
+        if (CurrentUser.getUserGender().equals("Male")) {
+            Image image = new Image(Constants.MALE_PROFILE);
+            imageView.setImage(image);
+        } else {
+            Image image = new Image(Constants.FEMALE_PROFILE);
+            imageView.setImage(image);
+        }
+    }
+
     private void setTableView(ResultSet rs) throws SQLException {
         while (rs.next()) {
             General general = new General();
@@ -427,6 +441,7 @@ public class ProfileController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
+            setImage();
             setTableView(GeneralDB.getTeacherStatistics(CurrentUser.getUserID()));
             setUserDetails(UsersDB.getUserDetails());
         } catch (SQLException e) {

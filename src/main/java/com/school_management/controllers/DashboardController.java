@@ -389,6 +389,7 @@ public class DashboardController implements Initializable {
         lblName.setText(CurrentUser.currentUsername());
         lblSession.setText(SessionDB.sessionString());
     }
+
     private void setImage() throws SQLException {
         if (CurrentUser.getUserGender().equals("Male")) {
             Image image = new Image(Constants.MALE_PROFILE);
@@ -398,6 +399,7 @@ public class DashboardController implements Initializable {
             imageView.setImage(image);
         }
     }
+
     private void setClassList() throws SQLException {
         classes = GeneralDB.getClasses(loggedUserID);
         listClasses.setItems(classes);

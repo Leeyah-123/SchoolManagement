@@ -11,74 +11,74 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="primaryPane" prefHeight="695.0" prefWidth="759.0" style="-fx-background-color: #00e7db; -fx-border-radius: 30; -fx-background-radius: 30;" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.school_management.controllers.StudentsController">
-   <children>
-      <AnchorPane prefHeight="55.0" prefWidth="759.0" style="-fx-background-color: #6200ee; -fx-background-radius: 30 30 0 0;">
-         <children>
-            <Label alignment="CENTER" layoutX="-4.0" layoutY="10.0" prefHeight="35.0" prefWidth="759.0" text="Students" textFill="#f9f6ff">
-               <font>
-                  <Font name="System Bold" size="30.0" />
-               </font>
-            </Label>
-         </children></AnchorPane>
-      <AnchorPane layoutX="51.0" layoutY="102.0" prefHeight="68.0" prefWidth="658.0" style="-fx-background-color: #6200ee; -fx-background-radius: 5;">
-         <children>
-            <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="381.0" layoutY="15.0" onAction="#addStudent" prefHeight="39.0" prefWidth="78.0" text="Add" textFill="#6200ee">
-               <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/icons8-add-64.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </MFXButton>
-            <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="465.0" layoutY="15.0" onAction="#editStudent" prefHeight="39.0" prefWidth="78.0" text="Edit" textFill="#6200ee">
-               <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/icons8-edit-64.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </MFXButton>
-            <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="551.0" layoutY="15.0" onAction="#deleteStudent" prefHeight="39.0" prefWidth="93.0" text="Delete" textFill="#6200ee">
-               <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/icons8-remove-64.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </MFXButton>
-            <AnchorPane layoutX="70.0" layoutY="-39.0" prefHeight="83.0" prefWidth="99.0" style="-fx-background-color: #6200ee;">
-               <children>
-                  <ImageView fitHeight="93.0" fitWidth="85.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/icons8_find_user_male_60px.png" />
-                     </image>
-                  </ImageView>
-               </children>
-               <effect>
-                  <DropShadow blurType="GAUSSIAN" />
-               </effect>
-            </AnchorPane>
-            <MFXTextField fx:id="txtSearch" borderGap="4.0" floatMode="BORDER" floatingText="Search Student" floatingTextGap="4.0" layoutX="188.0" layoutY="15.0" onAction="#search" onKeyReleased="#search" onKeyTyped="#search" prefHeight="39.0" prefWidth="179.0" style="-fx-background-color: transparent; -fx-border-radius: 0; -fx-border-color: transparent transparent white transparent;" />
-         </children>
+<AnchorPane fx:id="primaryPane" prefHeight="695.0" prefWidth="759.0"
+            style="-fx-background-color: #00e7db; -fx-border-radius: 30; -fx-background-radius: 30;"
+            stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.school_management.controllers.StudentsController">
+   <AnchorPane prefHeight="55.0" prefWidth="759.0"
+               style="-fx-background-color: #6200ee; -fx-background-radius: 30 30 0 0;">
+      <Label alignment="CENTER" layoutX="-4.0" layoutY="10.0" prefHeight="35.0" prefWidth="759.0" text="Students"
+             textFill="#f9f6ff">
+         <font>
+            <Font name="System Bold" size="30.0"/>
+         </font>
+      </Label>
+   </AnchorPane>
+   <AnchorPane layoutX="51.0" layoutY="102.0" prefHeight="68.0" prefWidth="658.0"
+               style="-fx-background-color: #6200ee; -fx-background-radius: 5;">
+      <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="381.0" layoutY="15.0" onAction="#addStudent"
+                 prefHeight="39.0" prefWidth="78.0" text="Add" textFill="#6200ee">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../images/icons8-add-64.png"/>
+            </ImageView>
+         </graphic>
+      </MFXButton>
+      <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="465.0" layoutY="15.0" onAction="#editStudent"
+                 prefHeight="39.0" prefWidth="78.0" text="Edit" textFill="#6200ee">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../images/icons8-edit-64.png"/>
+            </ImageView>
+         </graphic>
+      </MFXButton>
+      <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="551.0" layoutY="15.0" onAction="#deleteStudent"
+                 prefHeight="39.0" prefWidth="93.0" text="Delete" textFill="#6200ee">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../images/icons8-remove-64.png"/>
+            </ImageView>
+         </graphic>
+      </MFXButton>
+      <AnchorPane layoutX="70.0" layoutY="-39.0" prefHeight="83.0" prefWidth="99.0"
+                  style="-fx-background-color: #6200ee;">
+         <effect>
+            <DropShadow blurType="GAUSSIAN"/>
+         </effect>
+         <ImageView fitHeight="93.0" fitWidth="85.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <Image url="@../images/icons8_find_user_male_60px.png"/>
+         </ImageView>
       </AnchorPane>
-      <MFXLegacyTableView fx:id="tableView" editable="true" layoutX="51.0" layoutY="180.0" prefHeight="485.0" prefWidth="658.0" style="-fx-border-color: blue;" tableMenuButtonVisible="true">
-         <columns>
-            <TableColumn fx:id="columnStudentID" editable="false" prefWidth="79.0" text="StudentID" />
-            <TableColumn fx:id="columnFirstName" editable="false" prefWidth="147.0" text="Firstname" />
-            <TableColumn fx:id="columnLastName" editable="false" prefWidth="147.0" text="Lastname" />
-            <TableColumn fx:id="columnGender" editable="false" prefWidth="108.0" text="Gender" />
-            <TableColumn fx:id="columnEmail" editable="false" prefWidth="180.0" text="Email Address" />
-            <TableColumn fx:id="columnMobileNumber" editable="false" prefWidth="127.0" text="Mobile Number" />
-            <TableColumn fx:id="columnClass" editable="false" prefWidth="85.0" text="Class" />
-            <TableColumn fx:id="columnAmountPaid" editable="false" prefWidth="64.0" text="Amount Paid" />
-            <TableColumn fx:id="columnRegDate" editable="false" prefWidth="100.0" text="Reg. Date" />
-            <TableColumn fx:id="columnBalance" editable="false" prefWidth="100.0" text="Balance" />
-            <TableColumn fx:id="columnUpdatedAt" editable="false" prefWidth="100.0" text="Updated At" />
-         </columns>
-      </MFXLegacyTableView>
-   </children>
+      <MFXTextField fx:id="txtSearch" borderGap="4.0" floatMode="BORDER" floatingText="Search Student"
+                    floatingTextGap="4.0" layoutX="188.0" layoutY="15.0" onAction="#search" onKeyReleased="#search"
+                    onKeyTyped="#search" prefHeight="39.0" prefWidth="179.0"
+                    style="-fx-background-color: transparent; -fx-border-radius: 0; -fx-border-color: transparent transparent white transparent;"/>
+   </AnchorPane>
+   <MFXLegacyTableView fx:id="tableView" editable="true" layoutX="51.0" layoutY="180.0" prefHeight="485.0"
+                       prefWidth="658.0" style="-fx-border-color: blue;" tableMenuButtonVisible="true">
+      <columns>
+         <TableColumn fx:id="columnStudentID" editable="false" prefWidth="79.0" text="StudentID"/>
+         <TableColumn fx:id="columnFirstName" editable="false" prefWidth="147.0" text="Firstname"/>
+         <TableColumn fx:id="columnLastName" editable="false" prefWidth="147.0" text="Lastname"/>
+         <TableColumn fx:id="columnGender" editable="false" prefWidth="108.0" text="Gender"/>
+         <TableColumn fx:id="columnEmail" editable="false" prefWidth="180.0" text="Email Address"/>
+         <TableColumn fx:id="columnMobileNumber" editable="false" prefWidth="127.0" text="Mobile Number"/>
+         <TableColumn fx:id="columnClass" editable="false" prefWidth="85.0" text="Class"/>
+         <TableColumn fx:id="columnAmountPaid" editable="false" prefWidth="64.0" text="Amount Paid"/>
+         <TableColumn fx:id="columnRegDate" editable="false" prefWidth="100.0" text="Reg. Date"/>
+         <TableColumn fx:id="columnBalance" editable="false" prefWidth="100.0" text="Balance"/>
+         <TableColumn fx:id="columnUpdatedAt" editable="false" prefWidth="100.0" text="Updated At"/>
+      </columns>
+   </MFXLegacyTableView>
 </AnchorPane>

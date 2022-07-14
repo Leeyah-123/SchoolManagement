@@ -39,7 +39,7 @@ public class CurrentUser {
 
     public static String getUserGender() throws SQLException {
         Auth auth;
-        String decodedEmail = "";
+        String decodedEmail;
         String gender = "";
         try {
             auth = UserWriter.getCurrentUser();

@@ -3,11 +3,9 @@ package com.school_management.dao;
 import com.school_management.models.*;
 import com.school_management.models.Class;
 import com.school_management.utils.DBConstants;
-import com.school_management.utils.DBUtil;
 import com.school_management.utils.config.db.DBDataSource;
 
 import java.sql.*;
-import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;

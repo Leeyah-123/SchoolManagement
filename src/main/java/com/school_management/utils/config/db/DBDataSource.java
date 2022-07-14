@@ -8,8 +8,8 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class DBDataSource {
-    private static DBDataSource instance = new DBDataSource();
-    private Properties properties = new Properties();
+    private static final DBDataSource instance = new DBDataSource();
+    private final Properties properties = new Properties();
 
     public DBDataSource() {
         try (FileReader reader = new FileReader(Constants.DATABASE_CONFIG_DIR)) {

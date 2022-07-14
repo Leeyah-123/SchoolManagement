@@ -29,7 +29,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
-         <MFXButton fx:id="btnDashboard" layoutX="-1.0" onAction="#viewDashboard" prefHeight="48.0" prefWidth="226.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" styleClass="nav_button_active" text="Dashboard" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <MFXButton layoutX="-1.0" onAction="#viewDashboard" prefHeight="48.0" prefWidth="226.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" text="Dashboard" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>
@@ -49,7 +49,7 @@
          <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" />
          </VBox.margin>
-         <MFXButton fx:id="btnStudents" layoutX="-1.0" onAction="#viewStudents" prefHeight="48.0" prefWidth="236.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" styleClass="nav_button" text="View Students" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <MFXButton layoutX="-1.0" onAction="#viewStudents" prefHeight="48.0" prefWidth="236.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" styleClass="nav_button" text="View Students" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>
@@ -69,7 +69,7 @@
          <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" />
          </VBox.margin>
-         <MFXButton fx:id="btnTeachers" layoutX="-1.0" onAction="#viewTeachers" prefHeight="48.0" prefWidth="236.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" styleClass="nav_button" text="View Teachers" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <MFXButton layoutX="-1.0" onAction="#viewTeachers" prefHeight="48.0" prefWidth="236.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" styleClass="nav_button" text="View Teachers" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>
@@ -89,7 +89,7 @@
          <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" />
          </VBox.margin>
-         <MFXButton fx:id="btnClasses" alignment="CENTER" layoutX="-1.0" onAction="#viewClasses" prefHeight="48.0" prefWidth="236.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" styleClass="nav_button" text="Manage Classes/Subjects" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <MFXButton alignment="CENTER" layoutX="-1.0" onAction="#viewClasses" prefHeight="48.0" prefWidth="236.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" styleClass="nav_button" text="Manage Classes/Subjects" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>
@@ -112,7 +112,7 @@
          <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" />
          </VBox.margin>
-         <MFXButton fx:id="btnStatistics" layoutX="-1.0" onAction="#viewStatistics" prefHeight="48.0" prefWidth="236.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" styleClass="nav_button" text="View Statistics" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <MFXButton layoutX="-1.0" onAction="#viewStatistics" prefHeight="48.0" prefWidth="236.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" styleClass="nav_button" text="View Statistics" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>
@@ -132,7 +132,7 @@
          <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" />
          </VBox.margin>
-         <MFXButton fx:id="btnAccount" layoutX="-1.0" onAction="#viewAccount" prefHeight="48.0" prefWidth="236.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" styleClass="nav_button" text="Manage Account" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <MFXButton layoutX="-1.0" onAction="#viewAccount" prefHeight="48.0" prefWidth="236.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" styleClass="nav_button" text="Manage Account" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>
@@ -152,7 +152,7 @@
          <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" />
          </VBox.margin>
-         <MFXButton fx:id="btnExpenses" layoutX="-1.0" onAction="#viewExpenses" prefHeight="48.0" prefWidth="236.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" styleClass="nav_button" text="Expenses" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <MFXButton layoutX="-1.0" onAction="#viewExpenses" prefHeight="48.0" prefWidth="236.0" rippleColor="#2dabe2" style="-fx-background-color: transparent;" styleClass="nav_button" text="Expenses" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>

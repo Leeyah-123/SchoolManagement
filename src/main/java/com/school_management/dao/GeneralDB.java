@@ -77,7 +77,7 @@ public class GeneralDB {
         ObservableList<Statistics> listStatistics = getList(TeacherID);
         for (Statistics ignored : listStatistics) {
             classNum += 1;
-        };
+        }
         return classNum;
     }
 

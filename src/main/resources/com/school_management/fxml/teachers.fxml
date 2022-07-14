@@ -27,18 +27,16 @@
     </MFXLegacyTableView>
     <AnchorPane layoutX="51.0" layoutY="76.0" prefHeight="57.0" prefWidth="658.0" style="-fx-background-color: #6200ee; -fx-background-radius: 5;">
         <MFXTextField fx:id="txtSearch" borderGap="4.0" floatMode="BORDER" floatingText="Search by name or email" floatingTextGap="4.0" layoutX="212.0" layoutY="9.0" onAction="#search" onKeyReleased="#search" onKeyTyped="#search" prefHeight="39.0" prefWidth="215.0" style="-fx-background-color: transparent; -fx-border-radius: 0; -fx-border-color: transparent transparent #00e7db transparent;" textFill="WHITE" />
-      <AnchorPane layoutX="64.0" layoutY="-15.0" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: #6200ee;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" />
-         </effect>
-         <children>
-            <ImageView fitHeight="57.0" fitWidth="59.0" layoutX="3.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true" style="-: blue;">
-               <image>
-                  <Image url="@../images/icons8-staff-80.png" />
-               </image>
+        <AnchorPane layoutX="64.0" layoutY="-15.0" prefHeight="57.0" prefWidth="58.0"
+                    style="-fx-background-color: #6200ee;">
+            <effect>
+                <DropShadow blurType="GAUSSIAN"/>
+            </effect>
+            <ImageView fitHeight="57.0" fitWidth="59.0" layoutX="3.0" layoutY="-3.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <Image url="@../images/icons8-staff-80.png"/>
             </ImageView>
-         </children>
-      </AnchorPane>
+        </AnchorPane>
     </AnchorPane>
       <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="597.0" layoutY="86.0" onAction="#editRole" prefHeight="39.0" prefWidth="106.0" text="Edit Role" textFill="#6200ee">
           <graphic>
@@ -79,18 +77,16 @@
                </ImageView>
            </graphic>
         </MFXButton>
-      <AnchorPane layoutX="160.0" layoutY="-15.0" prefHeight="57.0" prefWidth="58.0" style="-fx-background-color: #6200ee;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" />
-         </effect>
-         <children>
-            <ImageView fitHeight="48.0" fitWidth="57.0" layoutX="4.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" style="-: blue;">
-               <image>
-                  <Image url="@../images/icons8-rules-50.png" />
-               </image>
+        <AnchorPane layoutX="160.0" layoutY="-15.0" prefHeight="57.0" prefWidth="58.0"
+                    style="-fx-background-color: #6200ee;">
+            <effect>
+                <DropShadow blurType="GAUSSIAN"/>
+            </effect>
+            <ImageView fitHeight="48.0" fitWidth="57.0" layoutX="4.0" layoutY="5.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <Image url="@../images/icons8-rules-50.png"/>
             </ImageView>
-         </children>
-      </AnchorPane>
+        </AnchorPane>
     </AnchorPane>
    <AnchorPane prefHeight="57.0" prefWidth="759.0" style="-fx-background-color: #6200ee; -fx-background-radius: 30 30 0 0;" />
      <Label alignment="CENTER" layoutY="10.0" prefHeight="35.0" prefWidth="759.0" text="Manage Staff" textFill="WHITE">

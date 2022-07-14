@@ -45,17 +45,15 @@
             </ImageView>
          </graphic>
       </MFXButton>
-      <AnchorPane layoutX="54.0" layoutY="-22.0" prefHeight="72.0" prefWidth="85.0" style="-fx-background-color: #6200ee;">
+      <AnchorPane layoutX="54.0" layoutY="-22.0" prefHeight="72.0" prefWidth="85.0"
+                  style="-fx-background-color: #6200ee;">
          <effect>
-            <DropShadow blurType="GAUSSIAN" />
+            <DropShadow blurType="GAUSSIAN"/>
          </effect>
-         <children>
-            <ImageView fitHeight="70.0" fitWidth="77.0" layoutX="6.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" style="-: blue;">
-               <image>
-                  <Image url="@../images/icons8-general-ledger-50.png" />
-               </image>
-            </ImageView>
-         </children>
+         <ImageView fitHeight="70.0" fitWidth="77.0" layoutX="6.0" layoutY="-1.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <Image url="@../images/icons8-general-ledger-50.png"/>
+         </ImageView>
       </AnchorPane>
    </AnchorPane>
 </AnchorPane>

@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.school_management.models.Auth;
 import com.school_management.utils.Constants;
 import org.apache.commons.codec.DecoderException;
-import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.DigestUtils;
 
@@ -15,11 +14,15 @@ import java.nio.file.Paths;
 
 public class UserWriter {
     private static final Base64 base64 = new Base64();
+    public static boolean contains = System.getProperty("user.dir").contains("/");
 
     public UserWriter() {
-        String[] dir = System.getProperty("user.dir").split("/");
-
-        String file_path = "/" + dir[1] + "/" + dir[2] + "/" + "userData/currentUser.bin";
+        String file_path;
+        if (contains) {
+            file_path = Constants.USERDATAFILE;
+        } else {
+            file_path = Constants.WINDOWSUSERDATAFILE;
+        }
         Path path = Paths.get(file_path);
         if (!Files.isDirectory(path)) {
             try {
@@ -33,23 +36,44 @@ public class UserWriter {
 
     private static void writeToFIle(Auth auth) {
         Gson gson = new Gson();
-        try (Writer writer = new FileWriter(Constants.USERDATAFILE)) {
-            gson.toJson(auth, writer);
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-            ex.printStackTrace();
+        if (contains) {
+            try (Writer writer = new FileWriter(Constants.USERDATAFILE)) {
+                gson.toJson(auth, writer);
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+                ex.printStackTrace();
+            }
+        } else {
+            try (Writer writer = new FileWriter(Constants.WINDOWSUSERDATAFILE)) {
+                gson.toJson(auth, writer);
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+                ex.printStackTrace();
+            }
         }
     }
 
     public static Auth getCurrentUser() throws DecoderException {
-        String[] dir = System.getProperty("user.dir").split("/");
-        String file_path = "/" + dir[1] + "/" + dir[2] + "/" + "userData";
+        String file_path = "";
+        if (contains) {
+            String[] dir = Constants.dir;
+            file_path = "/" + dir[1] + "/" + dir[2] + "/" + "userData";
+        } else {
+            String[] dir = Constants.windowsDir;
+            file_path = dir[0] + "\\\\" + dir[1] + "\\\\" + "userData";
+        }
         Path path = Paths.get(file_path);
         if (!Files.isDirectory(path)) {
             try {
                 Files.createDirectory(path);
                 System.out.println("Created Folder");
-                File myObj = new File(file_path + "/currentUser.sm");
+                File myObj;
+                if (contains) {
+                    myObj = new File(file_path + "/currentUser.sm");
+                } else {
+                    myObj = new File(file_path + "\\\\currentUser.sm");
+                }
+
                 if (myObj.createNewFile()) {
                     System.out.println("File created: " + myObj.getName());
                 } else {
@@ -63,12 +87,22 @@ public class UserWriter {
 
         Gson gson = new Gson();
         Auth auth = new Auth();
-        try (Reader reader = new FileReader(Constants.USERDATAFILE)) {
-            auth = gson.fromJson(reader, Auth.class);
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-            ex.printStackTrace();
+        if (contains) {
+            try (Reader reader = new FileReader(Constants.USERDATAFILE)) {
+                auth = gson.fromJson(reader, Auth.class);
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+                ex.printStackTrace();
+            }
+        } else {
+            try (Reader reader = new FileReader(Constants.WINDOWSUSERDATAFILE)) {
+                auth = gson.fromJson(reader, Auth.class);
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+                ex.printStackTrace();
+            }
         }
+
         String decodedUser;
         String decodedPassword;
         String decodedSelection;
@@ -94,6 +128,7 @@ public class UserWriter {
         }
         return false;
     }
+
     public static void encodeUserToFile(String email, String password, Boolean selection) {
         String encodedUser = new String(base64.encode(email.getBytes()));
         String encodedPassword = new String(base64.encode(password.getBytes()));
@@ -102,11 +137,20 @@ public class UserWriter {
     }
 
     public static void clearCurrentUser() {
-        try (Writer writer = new FileWriter(Constants.USERDATAFILE)) {
-            writer.write("");
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-            ex.printStackTrace();
+        if (contains) {
+            try (Writer writer = new FileWriter(Constants.USERDATAFILE)) {
+                writer.write("");
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+                ex.printStackTrace();
+            }
+        } else {
+            try (Writer writer = new FileWriter(Constants.WINDOWSUSERDATAFILE)) {
+                writer.write("");
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+                ex.printStackTrace();
+            }
         }
     }
 }

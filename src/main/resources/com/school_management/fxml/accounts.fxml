@@ -10,58 +10,61 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="primaryPane" prefHeight="695.0" prefWidth="759.0" style="-fx-background-color: #00e7db; -fx-border-radius: 30; -fx-background-radius: 30;" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.school_management.controllers.AccountsController">
-   <children>
-      <AnchorPane prefHeight="57.0" prefWidth="759.0" style="-fx-background-color: #6200ee; -fx-background-radius: 30 30 0 0;" />
-      <Label alignment="CENTER" layoutY="10.0" prefHeight="35.0" prefWidth="759.0" text="Accounts" textFill="#f9f6ff">
+<AnchorPane fx:id="primaryPane" prefHeight="695.0" prefWidth="759.0"
+            style="-fx-background-color: #00e7db; -fx-border-radius: 30; -fx-background-radius: 30;"
+            stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.school_management.controllers.AccountsController">
+   <AnchorPane prefHeight="57.0" prefWidth="759.0"
+               style="-fx-background-color: #6200ee; -fx-background-radius: 30 30 0 0;"/>
+   <Label alignment="CENTER" layoutY="10.0" prefHeight="35.0" prefWidth="759.0" text="Accounts" textFill="#f9f6ff">
+      <font>
+         <Font name="System Bold" size="30.0"/>
+      </font>
+   </Label>
+   <AnchorPane layoutX="50.0" layoutY="97.0" prefHeight="65.0" prefWidth="658.0"
+               style="-fx-background-color: #6200ee; -fx-background-radius: 5;">
+      <Label layoutX="229.0" layoutY="14.0" prefHeight="35.0" prefWidth="214.0" text="Account Balance:"
+             textFill="WHITE">
          <font>
-            <Font name="System Bold" size="30.0" />
+            <Font name="System Bold" size="25.0"/>
          </font>
       </Label>
-      <AnchorPane layoutX="50.0" layoutY="97.0" prefHeight="65.0" prefWidth="658.0" style="-fx-background-color: #6200ee; -fx-background-radius: 5;">
-         <children>
-            <Label layoutX="229.0" layoutY="14.0" prefHeight="35.0" prefWidth="214.0" text="Account Balance:" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-            </Label>
-            <Label fx:id="txtBalance" alignment="CENTER_RIGHT" layoutX="448.0" layoutY="16.0" prefHeight="35.0" prefWidth="106.0" text="0" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-            </Label>
-            <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="574.0" layoutY="14.0" onAction="#addRecord" prefHeight="39.0" prefWidth="78.0" text="Add" textFill="#6200ee">
-               <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                     <Image url="@../images/icons8-add-64.png" />
-                  </ImageView>
-               </graphic>
-            </MFXButton>
-            <AnchorPane layoutX="48.0" layoutY="-32.0" prefHeight="72.0" prefWidth="85.0" style="-fx-background-color: #6200ee;">
-               <effect>
-                  <DropShadow blurType="GAUSSIAN" />
-               </effect>
-               <children>
-                  <ImageView fitHeight="70.0" fitWidth="77.0" layoutX="6.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" style="-: blue;">
-                     <image>
-                        <Image url="@../images/icons8-accounts-64.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-         </children>
+      <Label fx:id="txtBalance" alignment="CENTER_RIGHT" layoutX="448.0" layoutY="16.0" prefHeight="35.0"
+             prefWidth="106.0" text="0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0"/>
+         </font>
+      </Label>
+      <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="574.0" layoutY="14.0" onAction="#addRecord"
+                 prefHeight="39.0" prefWidth="78.0" text="Add" textFill="#6200ee">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../images/icons8-add-64.png"/>
+            </ImageView>
+         </graphic>
+      </MFXButton>
+      <AnchorPane layoutX="48.0" layoutY="-32.0" prefHeight="72.0" prefWidth="85.0"
+                  style="-fx-background-color: #6200ee;">
+         <effect>
+            <DropShadow blurType="GAUSSIAN"/>
+         </effect>
+         <ImageView fitHeight="70.0" fitWidth="77.0" layoutX="6.0" layoutY="-1.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <Image url="@../images/icons8-accounts-64.png"/>
+         </ImageView>
       </AnchorPane>
-      <MFXLegacyTableView fx:id="tableView" editable="true" layoutX="50.0" layoutY="165.0" prefHeight="500.0" prefWidth="658.0" style="-fx-border-color: blue;" tableMenuButtonVisible="true">
-         <columns>
-            <TableColumn fx:id="columnRecordID" editable="false" prefWidth="79.0" text="RecordID" />
-            <TableColumn fx:id="columnEvent" editable="false" prefWidth="183.0" text="Event" />
-            <TableColumn fx:id="columnDescription" prefWidth="173.0" text="Description" />
-            <TableColumn fx:id="columnAmount" prefWidth="103.0" text="Amount" />
-            <TableColumn fx:id="columnDate" prefWidth="85.0" text="Date" />
-            <TableColumn fx:id="columnSession" prefWidth="85.0" text="Session" />
-            <TableColumn fx:id="columnBalance" prefWidth="64.0" text="Balance" />
-            <TableColumn fx:id="columnRecordedBy" prefWidth="100.0" text="StaffID" />
-         </columns>
-      </MFXLegacyTableView>
-   </children>
+   </AnchorPane>
+   <MFXLegacyTableView fx:id="tableView" editable="true" layoutX="50.0" layoutY="165.0" prefHeight="500.0"
+                       prefWidth="658.0" style="-fx-border-color: blue;" tableMenuButtonVisible="true">
+      <columns>
+         <TableColumn fx:id="columnRecordID" editable="false" prefWidth="79.0" text="RecordID"/>
+         <TableColumn fx:id="columnEvent" editable="false" prefWidth="183.0" text="Event"/>
+         <TableColumn fx:id="columnDescription" prefWidth="173.0" text="Description"/>
+         <TableColumn fx:id="columnAmount" prefWidth="103.0" text="Amount"/>
+         <TableColumn fx:id="columnDate" prefWidth="85.0" text="Date"/>
+         <TableColumn fx:id="columnSession" prefWidth="85.0" text="Session"/>
+         <TableColumn fx:id="columnBalance" prefWidth="64.0" text="Balance"/>
+         <TableColumn fx:id="columnRecordedBy" prefWidth="100.0" text="StaffID"/>
+      </columns>
+   </MFXLegacyTableView>
 </AnchorPane>

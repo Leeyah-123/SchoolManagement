@@ -23,85 +23,79 @@
          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
       </columnResizePolicy>
    </MFXLegacyTableView>
-   <AnchorPane layoutX="80.0" layoutY="89.0" prefHeight="64.0" prefWidth="601.0" style="-fx-background-color: #6200ee; -fx-background-radius: 5;">
-      <children>
-           <MFXButton fx:id="btnAddClass" buttonType="RAISED" depthLevel="LEVEL5" layoutX="335.0" layoutY="13.0" onAction="#addClass" text="Add" textFill="#6200ee">
-               <graphic>
-                   <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                       <Image url="@../images/icons8-add-64.png" />
-                   </ImageView>
-               </graphic>
-           </MFXButton>
-           <MFXButton fx:id="btnEditClass" buttonType="RAISED" depthLevel="LEVEL5" layoutX="419.0" layoutY="13.0" onAction="#editClass" text="Edit" textFill="#6200ee">
-               <graphic>
-                   <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                       <Image url="@../images/icons8-edit-64.png" />
-                   </ImageView>
-               </graphic>
-           </MFXButton>
-           <MFXButton fx:id="btnDeleteClass" buttonType="RAISED" depthLevel="LEVEL5" layoutX="502.0" layoutY="13.0" onAction="#deleteClass" text="Delete" textFill="#6200ee">
-               <graphic>
-                   <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                       <Image url="@../images/icons8-remove-64.png" />
-                   </ImageView>
-               </graphic>
-           </MFXButton>
-         <AnchorPane layoutX="65.0" layoutY="-20.0" prefHeight="72.0" prefWidth="85.0" style="-fx-background-color: #6200ee;">
-            <effect>
-               <DropShadow blurType="GAUSSIAN" />
-            </effect>
-            <children>
-               <ImageView fitHeight="70.0" fitWidth="77.0" layoutX="8.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" style="-: blue;">
-                  <image>
-                     <Image url="@../images/icons8-class-80.png" />
-                  </image>
-               </ImageView>
-            </children>
-         </AnchorPane>
-      </children>
+   <AnchorPane layoutX="80.0" layoutY="89.0" prefHeight="64.0" prefWidth="601.0"
+               style="-fx-background-color: #6200ee; -fx-background-radius: 5;">
+      <MFXButton fx:id="btnAddClass" buttonType="RAISED" depthLevel="LEVEL5" layoutX="335.0" layoutY="13.0"
+                 onAction="#addClass" text="Add" textFill="#6200ee">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../images/icons8-add-64.png"/>
+            </ImageView>
+         </graphic>
+      </MFXButton>
+      <MFXButton fx:id="btnEditClass" buttonType="RAISED" depthLevel="LEVEL5" layoutX="419.0" layoutY="13.0"
+                 onAction="#editClass" text="Edit" textFill="#6200ee">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../images/icons8-edit-64.png"/>
+            </ImageView>
+         </graphic>
+      </MFXButton>
+      <MFXButton fx:id="btnDeleteClass" buttonType="RAISED" depthLevel="LEVEL5" layoutX="502.0" layoutY="13.0"
+                 onAction="#deleteClass" text="Delete" textFill="#6200ee">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../images/icons8-remove-64.png"/>
+            </ImageView>
+         </graphic>
+      </MFXButton>
+      <AnchorPane layoutX="65.0" layoutY="-20.0" prefHeight="72.0" prefWidth="85.0"
+                  style="-fx-background-color: #6200ee;">
+         <effect>
+            <DropShadow blurType="GAUSSIAN"/>
+         </effect>
+         <ImageView fitHeight="70.0" fitWidth="77.0" layoutX="8.0" layoutY="1.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <Image url="@../images/icons8-class-80.png"/>
+         </ImageView>
+      </AnchorPane>
    </AnchorPane>
-   <AnchorPane layoutX="79.0" layoutY="405.0" prefHeight="64.0" prefWidth="601.0" style="-fx-background-color: #6200ee; -fx-background-radius: 5;">
-      <children>
-         <MFXButton fx:id="btnAddSubject" buttonType="RAISED" depthLevel="LEVEL5" layoutX="335.0" layoutY="13.0" onAction="#addSubject" text="Add" textFill="#6200ee">
-            <graphic>
-               <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../images/icons8-add-64.png" />
-                  </image>
-               </ImageView>
-            </graphic>
-         </MFXButton>
-         <MFXButton fx:id="btnEditSubject" buttonType="RAISED" depthLevel="LEVEL5" layoutX="419.0" layoutY="13.0" onAction="#editSubject" text="Edit" textFill="#6200ee">
-            <graphic>
-               <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../images/icons8-edit-64.png" />
-                  </image>
-               </ImageView>
-            </graphic>
-         </MFXButton>
-         <MFXButton fx:id="btnDeleteSubject" buttonType="RAISED" depthLevel="LEVEL5" layoutX="502.0" layoutY="13.0" onAction="#deleteSubject" text="Delete" textFill="#6200ee">
-            <graphic>
-               <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../images/icons8-remove-64.png" />
-                  </image>
-               </ImageView>
-            </graphic>
-         </MFXButton>
-         <AnchorPane layoutX="75.0" layoutY="-25.0" prefHeight="72.0" prefWidth="85.0" style="-fx-background-color: #6200ee;">
-            <effect>
-               <DropShadow blurType="GAUSSIAN" />
-            </effect>
-            <children>
-               <ImageView fitHeight="70.0" fitWidth="77.0" layoutX="6.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" style="-: blue;">
-                  <image>
-                     <Image url="@../images/icons8-book-64%20(1).png" />
-                  </image>
-               </ImageView>
-            </children>
-         </AnchorPane>
-      </children>
+   <AnchorPane layoutX="79.0" layoutY="405.0" prefHeight="64.0" prefWidth="601.0"
+               style="-fx-background-color: #6200ee; -fx-background-radius: 5;">
+      <MFXButton fx:id="btnAddSubject" buttonType="RAISED" depthLevel="LEVEL5" layoutX="335.0" layoutY="13.0"
+                 onAction="#addSubject" text="Add" textFill="#6200ee">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../images/icons8-add-64.png"/>
+            </ImageView>
+         </graphic>
+      </MFXButton>
+      <MFXButton fx:id="btnEditSubject" buttonType="RAISED" depthLevel="LEVEL5" layoutX="419.0" layoutY="13.0"
+                 onAction="#editSubject" text="Edit" textFill="#6200ee">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../images/icons8-edit-64.png"/>
+            </ImageView>
+         </graphic>
+      </MFXButton>
+      <MFXButton fx:id="btnDeleteSubject" buttonType="RAISED" depthLevel="LEVEL5" layoutX="502.0" layoutY="13.0"
+                 onAction="#deleteSubject" text="Delete" textFill="#6200ee">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../images/icons8-remove-64.png"/>
+            </ImageView>
+         </graphic>
+      </MFXButton>
+      <AnchorPane layoutX="75.0" layoutY="-25.0" prefHeight="72.0" prefWidth="85.0"
+                  style="-fx-background-color: #6200ee;">
+         <effect>
+            <DropShadow blurType="GAUSSIAN"/>
+         </effect>
+         <ImageView fitHeight="70.0" fitWidth="77.0" layoutX="6.0" layoutY="-1.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <Image url="@../images/icons8-book-64 (1).png"/>
+         </ImageView>
+      </AnchorPane>
    </AnchorPane>
    <MFXLegacyTableView fx:id="subjectTableView" layoutX="80.0" layoutY="471.0" prefHeight="221.0" prefWidth="601.0">
       <columns>
@@ -112,14 +106,14 @@
          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
       </columnResizePolicy>
    </MFXLegacyTableView>
-   <AnchorPane prefHeight="64.0" prefWidth="763.0" style="-fx-background-color: #6200ee; -fx-background-radius: 30 30 0 0;">
-      <children>
-         <Label alignment="CENTER" layoutY="15.0" prefHeight="35.0" prefWidth="763.0" text="Manage Classes/Subjects" textFill="WHITE">
-            <font>
-               <Font name="System Bold" size="30.0" />
-            </font>
-         </Label>
-      </children>
+   <AnchorPane prefHeight="64.0" prefWidth="763.0"
+               style="-fx-background-color: #6200ee; -fx-background-radius: 30 30 0 0;">
+      <Label alignment="CENTER" layoutY="15.0" prefHeight="35.0" prefWidth="763.0" text="Manage Classes/Subjects"
+             textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0"/>
+         </font>
+      </Label>
    </AnchorPane>
    <Line endX="666.0" layoutX="96.0" layoutY="64.0" startX="-100.0" />
 </AnchorPane>

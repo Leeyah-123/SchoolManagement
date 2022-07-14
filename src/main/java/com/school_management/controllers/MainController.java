@@ -6,12 +6,10 @@ import com.school_management.utils.Alerts;
 import com.school_management.utils.Constants;
 import com.school_management.utils.SceneController;
 import com.school_management.utils.StageDraggable;
-import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -20,20 +18,12 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
     @FXML
     private AnchorPane mainPane;
-    @FXML
-    private MFXButton btnDashboard, btnStudents, btnTeachers, btnClasses, btnStatistics, btnAccount, btnExpenses;
-
-    private void setSelected(MFXButton selectedBtn) {
-
-    }
 
     public void viewDashboard() {
         SceneController.switchScene(mainPane, Constants.DASHBOARD_FXML_DIR);
-        setSelected(btnDashboard);
     }
     public void viewStudents() {
         SceneController.switchScene(mainPane, Constants.STUDENTS_FXML_DIR);
-        setSelected(btnStudents);
     }
 
     public void viewTeachers() {
@@ -42,7 +32,6 @@ public class MainController implements Initializable {
             return;
         }
         SceneController.switchScene(mainPane, Constants.TEACHERS_FXML_DIR);
-        setSelected(btnTeachers);
     }
 
     public void viewClasses() {
@@ -51,7 +40,6 @@ public class MainController implements Initializable {
             return;
         }
         SceneController.switchScene(mainPane, Constants.CLASSES_FXML_DIR);
-        setSelected(btnClasses);
     }
 
     public void viewStatistics() {
@@ -60,7 +48,6 @@ public class MainController implements Initializable {
             return;
         }
         SceneController.switchScene(mainPane, Constants.STATISTICS_FXML_DIR);
-        setSelected(btnStatistics);
     }
 
     public void viewAccount() {
@@ -69,7 +56,6 @@ public class MainController implements Initializable {
             return;
         }
         SceneController.switchScene(mainPane, Constants.ACCOUNTS_FXML_DIR);
-        setSelected(btnAccount);
     }
 
     public void viewExpenses() {
@@ -78,7 +64,6 @@ public class MainController implements Initializable {
             return;
         }
         SceneController.switchScene(mainPane, Constants.EXPENSES_FXML_DIR);
-        setSelected(btnExpenses);
     }
 
     public void logout() {
@@ -93,6 +78,5 @@ public class MainController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         SceneController.initStage(mainPane, Constants.DASHBOARD_FXML_DIR);
         StageDraggable.setStageDraggable(mainPane);
-        setSelected(btnDashboard);
     }
 }

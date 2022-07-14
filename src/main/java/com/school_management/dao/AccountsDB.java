@@ -35,7 +35,7 @@ public class AccountsDB {
     }
 
     public static String stripMoney(String money) {
-        String strippedMoney = "";
+        String strippedMoney;
         if (money.charAt(0) != 0 || money.charAt(0) != 1 || money.charAt(0) != 2 || money.charAt(0) != 3 || money.charAt(0) != 4 || money.charAt(0) != 5 || money.charAt(0) != 6 || money.charAt(0) != 7 || money.charAt(0) != 8 || money.charAt(0) != 9) {
             money = money.substring(1);
         }

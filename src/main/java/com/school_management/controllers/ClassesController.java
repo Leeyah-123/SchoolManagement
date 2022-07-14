@@ -335,7 +335,7 @@ public class ClassesController implements Initializable {
         dialog.setAlwaysOnTop(true);
 
         dialog.setOnClose(event1 -> {
-            primaryPane.setEffect(null);;
+            primaryPane.setEffect(null);
             Animations.slideUp(primaryPane, dialog, -250);
         });
 
