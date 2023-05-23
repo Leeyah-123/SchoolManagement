@@ -97,7 +97,8 @@ public class SignupController implements Initializable {
 
 
         if (!Validators.isValidPassword(txtPassword.getText())) {
-            Alerts.AlertError("Error", "Invalid password");
+            Alerts.AlertError("Error", "Password must contain at least one number, " +
+                    "uppercase letter, lowercase letter, special character and must be between 8-15 characters long");
             registrationFail();
             return;
         }
@@ -165,7 +166,7 @@ public class SignupController implements Initializable {
     }
     private void registrationFail() {
         ShowTrayNotification
-                .trayNotification("Account registration fails", "Account creation was unsuccessful",
+                .trayNotification("Account registration failed", "Account creation was unsuccessful",
                         AnimationType.SLIDE, NotificationType.ERROR);
     }
 

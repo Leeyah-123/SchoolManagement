@@ -3,8 +3,15 @@ A school management system built using JavaFX and postgresql
 
 It was built using java11 hence javafx has to be setup on the IDE before using it.
 I recommend using Intellij
+ALso, a database named SchoolManagement will have to be created
 
 # SCREENSHOTS
+
+# Login page
+![login](screenshots/login.png)
+
+# Signup page
+![signup page](screenshots/signup.png)
 
 # Dashboard
 ![dashboard](screenshots/dashboard.png)
