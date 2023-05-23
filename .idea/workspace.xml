@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22873812-5423-4269-a259-511a53073cad" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/school_management/controllers/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/school_management/controllers/SignupController.java" afterDir="false" />
+    <list default="true" id="22873812-5423-4269-a259-511a53073cad" name="Changes" comment="Add login and signup page screenshots">
+      <change afterPath="$PROJECT_DIR$/screenshots/login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshots/signup.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,6 +191,14 @@
       <workItem from="1657808482164" duration="397000" />
       <workItem from="1657810420381" duration="1978000" />
     </task>
+    <task id="LOCAL-00001" summary="Add login and signup page screenshots">
+      <created>1684872021887</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684872021887</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,5 +217,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Add login and signup page screenshots" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add login and signup page screenshots" />
   </component>
 </project>
